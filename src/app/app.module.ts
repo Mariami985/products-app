@@ -9,6 +9,7 @@ import { DescrCompanyComponent } from './descr-company/descr-company.component';
 import { DescrProductComponent } from './descr-product/descr-product.component';
 import { FooterComponent } from './footer/footer.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     DescrCompanyComponent,
     DescrProductComponent,
-    FooterComponent
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
