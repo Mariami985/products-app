@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { DescrCompanyComponent } from './descr-company/descr-company.component';
 import { DescrProductComponent } from './descr-product/descr-product.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProductsListComponent } from './products-list/products-list.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { FooterComponent } from './footer/footer.component';
     DescrCompanyComponent,
     DescrProductComponent,
     FooterComponent,
+    ProductsListComponent,
 
   ],
   imports: [
