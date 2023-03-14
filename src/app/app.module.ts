@@ -9,6 +9,7 @@ import { DescrCompanyComponent } from './descr-company/descr-company.component';
 import { DescrProductComponent } from './descr-product/descr-product.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductsListComponent } from './products-list/products-list.component';
+import { ToolTipDirective } from './directive/tool-tip.directive';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
     DescrProductComponent,
     FooterComponent,
     ProductsListComponent,
+    ToolTipDirective,
 
   ],
   imports: [

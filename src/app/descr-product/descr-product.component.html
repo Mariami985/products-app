@@ -1,9 +1,39 @@
-<p>descr-product works!</p>
+<h2> products</h2>
 
 
-<p>short products desription</p>
+<!--  რამდენიმე დივი და პროდუქტი რისი შეძენა შეიძლება -->
 
-<!-- ! რამდენიმე დივი და პროდუქტი რისი შეძენა შეიძლება -->
-<div>
-     <app-products-list [items]="items"></app-products-list>
+<!-- ! ვიყენებ *ngIf, *ngFor, *ngStyle დირექტივებს, *ngIf უბრალოდ სატესტოდ ისე არ მჭირდება აქ  -->
+
+<div *ngIf="items">
+     <ul [ngStyle]="{'display':'flex', 'gap': '6rem', 'margin-left': '10rem', 'list-style': 'none'}">
+          <li *ngFor="let item of items">
+               <app-products-list [items]="items"></app-products-list>
+               <h3>{{item.title}}</h3>
+               <p>{{item.type}}</p>
+               <p>{{item.description}}</p>
+               <p>{{item.price}}</p>
+               <p>{{item.quantity}}</p>
+
+ <!-- ! ესე ვერ დავწერე, ვერც ერთი გზით - მინდა რომ ფასი გამოჩნდეს ლარში პაიპით და სტრინგად არ მეწეროს ts ფაილში -->
+
+               <!-- {{ 1234.5678 | currency:'GEL':'symbol':'1.2-2' }}</p> -->
+
+               <!-- <p>{{item.price | currency:'GEL':'symbol':'1.2-2' }}</p> -->
+               <!-- <p>{{ {{item.price}} {{ 1234.5678 | currency:'GEL':'symbol':'1.2-2' }} }}</p> -->
+               <!-- <p>{{item.price}}  | currency:'GEL':'symbol':'1.2-2' </p> -->
+               <!-- <p>{{item.price}} | {{ currency:'GEL':'symbol':'1.2-2' }}</p> -->
+               <!-- <p [ngModel] ="item.price | currency: 'GEL'"></p> -->
+          </li>
+     </ul>    
 </div>
+
+<!-- ! სატესტოდ   და გამოვიდა -->
+<div>
+     {{ items | json }}
+   </div>
+
+<!-- ! არ გამოვიდა, მდოლოდ აიდის წერს დანარჩენზე object-ს -->
+   <div *ngFor="let item of items | keyvalue">
+     {{ item.key }}: {{ item.value }}
+   </div>

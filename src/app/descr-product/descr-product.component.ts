@@ -10,25 +10,33 @@ export class DescrProductComponent {
   items = [ 
     {
       id: 1,
-      type: 'cup',
-      title: 'product 1',
+      type: 'box',
+      title: 'Pizza storage box',
       description: 'description 1',
-      price: '0.4 gel',
+      price: '10 gel',
       quantity: 0
     },
     {
       id: 2,
-      type: 'box',
-      title: 'product 2',
+      type: 'container',
+      title: 'Disposable food storage container',
       description: 'description 2',
-      price: '10 gel',
+      price: '0.15 gel',
       quantity: 0
     },
     {
       id: 3,
       type: 'dishes',
-      title: 'product 2',
+      title: 'Disposable forks, spoons, plates',
       description: 'description 3',
+      price: '0.20 gel',
+      quantity: 0
+    },
+    {
+      id: 4,
+      type: 'cup',
+      title: 'Disposable paper cups',
+      description: 'description 4',
       price: '0.3 gel',
       quantity: 0
     }

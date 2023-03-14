@@ -1,14 +1,14 @@
 <p>header works!</p>
 <p>logo</p>
 <nav>
-     <ul>
+     <ul [ngStyle]="{'display':'flex', 'gap': '4rem', 'list-style': 'none'}">
           <li>home</li>
           <li>about</li>
           <li>products</li>
           <li>contact</li>
           <li>
                account +
-               <ul>
+               <ul [ngStyle]="{'list-style': 'none'}">
                     <li>login</li>
                     <li>register</li>
                </ul>
@@ -16,3 +16,4 @@
           <li>cart icon</li>
      </ul>
 </nav>
+
