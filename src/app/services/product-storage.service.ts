@@ -5,16 +5,13 @@ import { Injectable } from '@angular/core';
 })
 
 export class ProductStorageService  {
-  getadd(): any {
-    throw new Error('Method not implemented.');
-  }
     private items:any[]
   
   constructor() {
     this.items = []
   }
 
-  add(item:any){
+  getAdd(item:any){
     this.items.push(item)
   }
   remove(id: number){
@@ -49,7 +46,7 @@ export class ProductStorageService  {
 }
 
 const data = new ProductStorageService()
-data.add( 
+data.getAdd([
   {
     id: 1,
     type: 'box',
@@ -58,8 +55,7 @@ data.add(
     price: 10,
     quantity: 0
    },
-),
-data.add({
+{
     id: 2,
     type: 'container',
     title: 'Disposable food storage container',
@@ -67,8 +63,7 @@ data.add({
     price: 0.15,
     quantity: 0
   },
-),
-data.add( {
+  {
     id: 3,
     type: 'dishes',
     title: 'Disposable forks, spoons, plates',
@@ -76,8 +71,7 @@ data.add( {
     price: 0.02,
     quantity: 0
   },
-),
-data.add({
+{
     id: 4,
     type: 'cup',
     title: 'Disposable paper cups',
@@ -85,7 +79,8 @@ data.add({
     price: 0.03,
     quantity: 0
   }
-)
+
+])
 
 console.log(data);
 
