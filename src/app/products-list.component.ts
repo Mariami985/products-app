@@ -10,7 +10,8 @@ items:any
 
 
 constructor (private item: ProductStorageService ) {
-this.items =item.getadd([]);
+// this.items = item.getAdd([]);
+this.items = item.getFind({ type: "box"})
 }
 }
 

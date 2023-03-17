@@ -23,7 +23,7 @@ export class ProductStorageService  {
          this.items[index] = { ...this.items[index], ...updates };
     }
   }
-  find(query:any) {
+  getFind(query:any) {
     return this.items.filter((item) => {
       for (const key in query) {
         if (item[key] !== query[key]) {
@@ -90,7 +90,7 @@ data.update(4, {
 
 console.log(data)
 
-const typeItem = data.find({ type: "box"});
+const typeItem = data.getFind({ type: "box"});
 
 console.log(typeItem);
 
