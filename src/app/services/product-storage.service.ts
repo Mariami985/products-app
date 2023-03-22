@@ -1,100 +1,57 @@
 import { Injectable } from '@angular/core';
+import { VirtualStorage } from './virtual-storage.class';
+import {Products} from '../interface/prod-interface';
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class ProductStorageService  {
-    private items:any[]
-  
-  constructor() {
-    this.items = []
-  }
+export class ProductStorageService extends VirtualStorage<Products>  {
 
-  getAdd(item:any){
-    this.items.push(item)
-  }
-  remove(id: number){
-    this.items = this.items.filter((item) =>item.id !== id)
-  }
-  update (id: number, updates:any){
-    const index = this.items.findIndex((item) => item.id === id);
-    if (index !== -1) {
-         this.items[index] = { ...this.items[index], ...updates };
-    }
-  }
-  getFind(query:any) {
-    return this.items.filter((item) => {
-      for (const key in query) {
-        if (item[key] !== query[key]) {
-          return false;
-        }
-      }
-      return true;
-    });
-  }
-  findOne(query:any) {
-    return this.items.find((item) => {
-      for (const key in query) {
-        if (item[key] !== query[key]) {
-          return false;
-        }
-      }
-      return true;
-    });
+  constructor() {
+   
+    super();
+
+      this.add({
+        id: 1,
+        url:"../../assets/img/pizza.jpg",
+        alt:"Pro-img1",
+        type: 'box',
+        title: 'Pizza storage box',
+        description: 'description 1',
+        price: 10,
+        quantity: 500
+       });
+       this.add({
+        id: 2,
+        url:"../../assets/img/container.jpg",
+        alt:"Pro-img2",
+        type: 'container',
+        title: 'food storage container',
+        description: 'description 2',
+        price: 0.15,
+        quantity: 1000
+       });
+       this.add({
+        id: 3,
+        url:"../../assets/img/dishis.jpg",
+        alt:"Pro-img3",
+        type: 'dishes',
+        title: 'forks, spoons, plates',
+        description: 'description 3',
+        price: 0.02,
+        quantity: 1000
+       });
+       this.add({
+        id: 4,
+        url:"../../assets/img/cup.jpg",
+        alt:"Pro-img4",
+        type: 'cup',
+        title: 'Disposable paper cups',
+        description: 'description 4',
+        price: 0.03,
+        quantity: 1000
+       })
   }
 }
-
-const data = new ProductStorageService()
-data.getAdd([
-  {
-    id: 1,
-    type: 'box',
-    title: 'Pizza storage box',
-    description: 'description 1',
-    price: 10,
-    quantity: 0
-   },
-{
-    id: 2,
-    type: 'container',
-    title: 'Disposable food storage container',
-    description: 'description 2',
-    price: 0.15,
-    quantity: 0
-  },
-  {
-    id: 3,
-    type: 'dishes',
-    title: 'Disposable forks, spoons, plates',
-    description: 'description 3',
-    price: 0.02,
-    quantity: 0
-  },
-{
-    id: 4,
-    type: 'cup',
-    title: 'Disposable paper cups',
-    description: 'description 4',
-    price: 0.03,
-    quantity: 0
-  }
-
-])
-
-console.log(data);
-
-data.update(4, {
-  quantity : 12000,
-});
-
-console.log(data)
-
-const typeItem = data.getFind({ type: "box"});
-
-console.log(typeItem);
-
-data.remove(2);
-
-console.log(data)
 

@@ -1,0 +1,10 @@
+<div *ngFor="let item of data" class="flex justify-center items-center h-screen">
+    <div class="pl-20 w-2/5 container mx-auto">
+         <h2 class="text-4xl font-bold text-yellow-500 uppercase mx-8 ">{{item.title}}</h2>
+         <p class="text-lg font-normal text-black-200 lowercase m-8 ">{{item.description}}</p>
+         <a href="#" class="bg-yellow-300 px-2 py-2 mx-8 rounded text-black font-bold text-base capitalize hover:bg-yellow-400"><span>read more</span></a>
+     </div>
+     <div class="w-2/5 p-10 mx-auto shadow " >
+          <img src="{{item.url}}" alt="{{item.alt}}">
+     </div>
+</div>

@@ -1,3 +1,4 @@
+import { ProductStorageService } from './services/product-storage.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,3 +9,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'products-app';
 }
+
+
