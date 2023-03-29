@@ -1,3 +1,32 @@
-<div>
-     <input type="text" placeholder="search products">
-</div>
+<header class="bg-violet-100">
+     <div>
+          <div class="flex items-center ">
+               <i class="fas fa-shipping-fast text-2xl text-violet-500 mr-10 pl-4"></i>
+               <span class="text-xl text-black font-bold tracking-widest uppercase">make a choice</span>
+
+<!-- ! form group  -->
+               <div class="mx-[20rem] mb-2 p-2 ">
+                    <form [formGroup]="productsSearchForms"  class="flex gap-2">
+                         <div>
+                              <input type="text" id="search" formControlName="search" />
+                         </div>
+                         <div>
+                              <select id="location" formControlName="location" class="text-sm capitalize p-[0.1rem]">
+                                   <option *ngFor="let location of productsLocation" [value]="location">{{ location }}</option>
+                              </select>
+                         </div>
+                  </form>
+               </div>
+                 
+               <button class="flex" >
+                    <a href="#" class="fas fa-shopping-cart lg:inline-flex lg:w-auto px-3 py-4 rounded text-2xl text-violet-500 hover:bg-violet-200"></a>
+                    <!-- <div class="text-[1rem]  text-red-500 absolute py-6 pl-10" >0</div> -->
+               </button>
+          </div>
+     </div>
+</header>
+     
+
+
+
+

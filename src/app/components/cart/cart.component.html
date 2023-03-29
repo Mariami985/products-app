@@ -1,1 +1,16 @@
-<p>cart works!</p>
+<div class="grid grid-cols-3 gap-4 w-auto justify-center items-center h-screen">
+     <div *ngFor="let item of productList">
+          <div class="pb-10">
+               <div class="bg-white  rounded-lg mt-20 ml-20 mr-20 mb-10">
+                    <img src="{{item.image}}" alt="{{item.alt}}" class="w-[40%] rounded object-cover object-center mb-6 ">
+                    <h3 class="text-sm text-black font-medium mb-4 overflow-hidden capitalize">{{item.title}}</h3>
+                    <div class="flex justify-between">
+                         <p class="tracking-widest text-gray text-xs font-medium uppercase">{{item.category}}</p>
+                         <p class="tracking-widest text-gray-800 text-xs font-medium uppercase pr-6">{{item.price | currency: 'GEL '}}</p>
+                    </div>
+               </div>
+          <button class="bg-violet-300 hover:bg-violet-400 px-3 py-2 ml-20 rounded text-white font-bold text-base capitalize ">add to cart</button>
+          </div>
+     </div>
+</div>
+

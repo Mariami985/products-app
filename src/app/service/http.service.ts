@@ -2,20 +2,27 @@ import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {map} from 'rxjs/operators'
+import { VirtualStorage } from './virtual-storage';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HttpService {
+export class HttpService  {
   private apiUrl = environment.apiUrl;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { 
+  }
 
   getProdact(): Observable<any>{
     return this.http.get<any>(this.apiUrl + '/products?limit=6')
-    .pipe(map((response:any) => {
-       return response;
-    }))
+   
+  }
+
+// find მეთოდი, რომლოითაც ვფილტრავ ლოკაციას ამ შემთხვევაში 
+
+  find(filters?:any) {
+    return this.http.get<any>((this.apiUrl) + '/products?limit=6',{
+      ...filters,
+    });
   }
 }

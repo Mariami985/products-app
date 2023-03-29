@@ -1,30 +1,26 @@
 import { HttpService } from './../../service/http.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
+
+// სერვისს ვიძახებ და find-ით ვპოულობ ლოკაციას
+
 export class ProductsComponent implements OnInit {
 
-    public productList: any;
+  data!: any[];
 
-    constructor(private httpService: HttpService) {
+  items$ = this.httpservice.find({location: 'Guide'});
+  
+  constructor(private httpservice: HttpService) {}
 
-    }
-    ngOnInit(): void {
-        this.httpService.getProdact()
-        .subscribe(response => {
-          this.productList = response;
-          
-          console.log(response)
-        })
-        
-    }
+  ngOnInit():any {
+    
+  }
+  onFilterChanged(filters:any) {
+    this.items$ = this.httpservice.find(filters);
+  }
 }
-// const myObject = { a: 1, b: 2, c: 3 };
-
-// const myArray = Object.entries(myObject);
-
-// console.log(myArray);
