@@ -2,7 +2,7 @@
      <div *ngFor="let item of productList">
           <div class="pb-10">
                <div class="bg-white  rounded-lg mt-20 ml-20 mr-20 mb-10">
-                    <img src="{{item.image}}" alt="{{item.alt}}" class="w-[40%] rounded object-cover object-center mb-6 ">
+                    <img src="{{item.images[0]}}" alt="{{item.alt}}" class="w-[40%] rounded object-cover object-center mb-6 ">
                     <h3 class="text-sm text-black font-medium mb-4 overflow-hidden capitalize">{{item.title}}</h3>
                     <div class="flex justify-between">
                          <p class="tracking-widest text-gray text-xs font-medium uppercase">{{item.category}}</p>

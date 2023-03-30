@@ -32,6 +32,7 @@ export abstract class VirtualStorage<T extends { id: number }> {
          return true;
        });
      }
+    
    
      findOne(query?: Partial<T>) {
        return this.items.find((item) => {

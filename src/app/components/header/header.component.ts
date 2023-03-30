@@ -1,6 +1,7 @@
 import { HttpService } from './../../service/http.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -16,25 +17,30 @@ export class HeaderComponent implements OnInit {
   @Output() filterChanged = new EventEmitter<any>();
 
 
+data!: any[];
 
 
-  productsSearchForms = new FormGroup({
-    search: new FormControl(''),
-    location: new FormControl('guide'),
+  searchForm = new FormGroup({
+    search: new FormControl('')
   });
-  productList: any;
 
-  constructor(private httpservice: HttpService) {
-    this.productsSearchForms.valueChanges.subscribe((values) => {
+  constructor(private httpService: HttpService) {
+    this.searchForm.valueChanges.pipe(debounceTime(400)).subscribe((values) => {
       console.log(values)
-      this.filterChanged.emit({
-        query: values.search,
-        location: values.location,
-      });
-    });
+
+      this. getApi(values.search)
+  });
 
    }
-   productsLocation = ['guide', 'all products', 'fashion', 'electronics', 'jewellery'];
+
+ 
+  getApi(search?:string | null | undefined){
+    this.httpService.getProdact(search).subscribe(
+          (data) => {
+            this.data = data
+          }
+    )
+  }
 
    ngOnInit(){
    }

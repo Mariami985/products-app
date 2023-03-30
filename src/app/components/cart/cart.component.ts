@@ -1,6 +1,5 @@
 import { HttpService } from './../../service/http.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +17,9 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
       this.httpService.getProdact()
       .subscribe(response => {
-        this.productList = response;
+        this.productList = response.products
+
+        console.log(this.productList)
       })
       
   }

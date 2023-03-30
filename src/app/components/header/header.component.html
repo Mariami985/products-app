@@ -6,14 +6,15 @@
 
 <!-- ! form group  -->
                <div class="mx-[20rem] mb-2 p-2 ">
-                    <form [formGroup]="productsSearchForms"  class="flex gap-2">
-                         <div>
-                              <input type="text" id="search" formControlName="search" />
+                    <form  class="flex gap-2">
+                         <div [formGroup]="searchForm">
+                              <input type="text" id="search" formControlName="search"/>
                          </div>
                          <div>
-                              <select id="location" formControlName="location" class="text-sm capitalize p-[0.1rem]">
-                                   <option *ngFor="let location of productsLocation" [value]="location">{{ location }}</option>
-                              </select>
+                              <!-- <select id="location" class="text-sm capitalize p-[0.1rem]">
+                                   <option *ngFor="let location of productsLocation
+                                   " [value]="location">{{ location }}</option>
+                              </select> -->
                          </div>
                   </form>
                </div>
