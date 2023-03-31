@@ -1,7 +1,7 @@
 import { HttpService } from './../../service/http.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { debounceTime } from 'rxjs';
+import { Component,  OnInit, ViewChild } from '@angular/core';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-header',
@@ -9,39 +9,15 @@ import { debounceTime } from 'rxjs';
   styleUrls: ['./header.component.scss']
 })
 
-// ინფუთი და აუთფუთი მონაცემების მიმმოსაცვლელად
-// ფორმგრუპი 
 export class HeaderComponent implements OnInit {
-  @Input() items:any
 
-  @Output() filterChanged = new EventEmitter<any>();
-
-
-data!: any[];
-
-
-  searchForm = new FormGroup({
-    search: new FormControl('')
-  });
 
   constructor(private httpService: HttpService) {
-    this.searchForm.valueChanges.pipe(debounceTime(400)).subscribe((values) => {
-      console.log(values)
+  };
 
-      this. getApi(values.search)
-  });
-
-   }
-
+  ngOnInit(): void {
  
-  getApi(search?:string | null | undefined){
-    this.httpService.getProdact(search).subscribe(
-          (data) => {
-            this.data = data
-          }
-    )
   }
 
-   ngOnInit(){
-   }
 }
+ 

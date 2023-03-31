@@ -8,16 +8,12 @@ import { Observable } from 'rxjs';
 })
 export class HttpService  {
   private apiUrl = environment.apiUrl;
+  
 
   constructor(private http:HttpClient) { 
   }
 
-  getProdact(search?:string | null | undefined): Observable<any>{
-    return this.http.get<any>(this.apiUrl + '/products?limit=6')
-   
+  getProduct(search?: string | null | undefined): Observable<any> {
+    return this.http.get<any>(`https://dummyjson.com/products/search?q=${search}`);
   }
-
-  // getApi(search?:string | null | undefined){
-  //   return this.http.get<any>('https://dummyjson.com/products/search?q=phone')
-  // }
 }

@@ -1,3 +1,12 @@
+
+<div class="mx-[20rem] mb-2 p-2 ">
+     <form  class="flex gap-2">
+          <div [formGroup]="searchForm">
+               <input type="text" placeholder="search" formControlName="search" (keyup.enter)="onClick($event.target)" class="bg-white shadow ml-[12rem] mt-2 px-2 border-black"/>
+          </div>
+   </form>
+</div>
+
 <div class="grid grid-cols-3 gap-4 w-auto justify-center items-center h-screen">
      <div *ngFor="let item of productList">
           <div class="pb-10">
@@ -9,7 +18,12 @@
                          <p class="tracking-widest text-gray-800 text-xs font-medium uppercase pr-6">{{item.price | currency: 'GEL '}}</p>
                     </div>
                </div>
-          <button class="bg-violet-300 hover:bg-violet-400 px-3 py-2 ml-20 rounded text-white font-bold text-base capitalize ">add to cart</button>
+          <button  class="bg-violet-300 hover:bg-violet-400 px-3 py-2 ml-20 rounded text-white font-bold text-base capitalize ">add to cart</button>
+          
+          <button routerLink="/register" class="bg-violet-300 hover:bg-violet-400 px-3 py-2 ml-20 rounded text-white font-bold text-base capitalize ">register</button>
+          
+          <button routerLink="/singup" class="bg-violet-300 hover:bg-violet-400 px-3 py-2 ml-20 rounded text-white font-bold text-base capitalize ">singup</button>
+
           </div>
      </div>
 </div>

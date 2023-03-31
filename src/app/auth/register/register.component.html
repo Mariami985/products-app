@@ -1,0 +1,60 @@
+<div class="min-h-screen py-40" style="background-image: linear-gradient(115deg, #9F7AEA, #FEE2FE)">
+     <div class=" flex w-8/12 bg-white rounded-xl mx-auto shadow-lg overflow-hidden ">
+          <div class="w-1/2" style="background-image: url('../../../assets/img/img-6.jpg');">
+               <h1 class="text-white  text-xl ml-[10rem] mt-[3rem] ">Welcome</h1>
+               <p class="text-white text-sm ml-[3rem] mt-[2rem]">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, atque.</p>
+          </div>
+          <div wlass="w-1/2 py-16 px-12">
+               <h2 class="text-3xl mb-4 mt-4 ml-[10rem] uppercase text-black font-bold">register</h2>
+               <p class="mb-4 capitalize ml-[4rem] text-sm font-normal text-black">create your account, it's free and only take a minute</p>
+               <form  [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                    <div class=" grid grid-cols-2 gap-3 mx-2">
+                        <input class="border border-gray-400 py-1 px-2" 
+                            formControlName="name"
+                            placeholder="First name*"
+                            [class.red]="myForm.get('name')?.invalid && (myForm.get('name')?.dirty || myForm.get('name')?.touched)"
+                            [class.green]="!myForm.get('name')?.invalid && (myForm.get('name')?.dirty || myForm.get('name')?.touched)">
+                        <div class="text-[16px] text-red-700"  *ngIf="myForm.get('name')?.invalid && (myForm.get('name')?.dirty || myForm.get('name')?.touched)">
+                            Name is required!
+                        </div>
+                        <input  class="border border-gray-400 py-1 px-2"
+                            formControlName="lastName" 
+                            placeholder="Last name*"
+                            [class.red]="myForm.get('lastName')?.invalid && (myForm.get('lastName')?.dirty || myForm.get('lastName')?.touched)"
+                            [class.green]="!myForm.get('lastName')?.invalid && (myForm.get('lastName')?.dirty || myForm.get('lastName')?.touched)">
+                        <div class="text-[16px] text-red-700"  *ngIf="myForm.get('lastName')?.invalid && (myForm.get('lastName')?.dirty || myForm.get('lastName')?.touched)">
+                            Last name is required!
+                        </div>
+                    </div>
+                    <div class=" grid grid-cols-2 gap-3 mx-2 mt-5">
+                        <input  class="border border-gray-400 py-1 px-2"
+                            formControlName="tel" 
+                            placeholder="Mobile Phone*"
+                            [class.red]="myForm.get('tel')?.invalid && (myForm.get('tel')?.dirty || myForm.get('tel')?.touched)"
+                            [class.green]="!myForm.get('tel')?.invalid && (myForm.get('tel')?.dirty || myForm.get('tel')?.touched)">
+                        <div class="text-[16px] text-red-700"  *ngIf="myForm.get('tel')?.invalid && (myForm.get('tel')?.dirty || myForm.get('tel')?.touched)">
+                            Mobile phone is required!
+                        </div>
+                        <input  class="border border-gray-400 py-1 px-2"
+                            formControlName="email"
+                            placeholder="Email*"
+                            [class.red]="myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)"
+                            [class.green]="!myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)">
+                        <div class="text-[16px] font-red-700"  *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)">
+                            Email is required!
+                        </div>
+                        <input  class="border border-gray-400 py-1 px-2 input"
+                            formControlName="password" 
+                            placeholder="password*"
+                            [class.red]="myForm.get('password')?.invalid && (myForm.get('password')?.dirty || myForm.get('password')?.touched)"
+                            [class.green]="!myForm.get('password')?.invalid && (myForm.get('password')?.dirty || myForm.get('password')?.touched)">
+                        <div class="text-[16px] text-red-700" *ngIf="myForm.get('password')?.invalid && (myForm.get('password')?.dirty || myForm.get('password')?.touched)">
+                                   password is required!
+                        </div>
+                    </div>
+                    <p class="text-xs ml-2 mt-[2rem] mb-5">Please visit our Privacy Policy to understand how we handle your personal data.</p>
+                    <button class="bg-violet-300 hover:bg-violet-400 px-3 py-2 ml-[0.5rem] mb-[1rem] rounded text-white font-bold text-base capitalize " type="submit">Submit request</button>
+                </form>
+          </div>
+     </div>
+</div>
