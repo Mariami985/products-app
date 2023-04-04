@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CartComponent } from './components/cart/cart.component';
-import { ProductsComponent } from './components/products/products.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './auth/login/login/login.component';
+import { DetailsPageComponent } from './components/details-page/details-page.component';
 
 
 @NgModule({
@@ -17,8 +18,9 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HeaderComponent,
     CartComponent,
-    ProductsComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    DetailsPageComponent
   ],
   imports: [
     BrowserModule,

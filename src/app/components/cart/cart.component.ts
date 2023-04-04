@@ -1,7 +1,6 @@
 import { HttpService } from './../../service/http.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +17,7 @@ export class CartComponent implements OnInit {
 search = ''
 
   constructor(private httpService: HttpService) {
-    this.searchForm.valueChanges.pipe(debounceTime(300)).subscribe((values) => {
+    this.searchForm.valueChanges.subscribe((values) => {
 
       this.getData(values.search)
     })
@@ -36,7 +35,6 @@ search = ''
       })
   }
   onClick(event:any){
-    console.log(event.value)
     if(event.value != undefined){
       this.search= event.value
     }

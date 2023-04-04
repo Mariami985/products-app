@@ -4,14 +4,15 @@
                <h1 class="text-white  text-xl ml-[10rem] mt-[3rem] ">Welcome</h1>
                <p class="text-white text-sm ml-[3rem] mt-[2rem]">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, atque.</p>
           </div>
-          <div wlass="w-1/2 py-16 px-12">
+          <div>
                <h2 class="text-3xl mb-4 mt-4 ml-[10rem] uppercase text-black font-bold">register</h2>
                <p class="mb-4 capitalize ml-[4rem] text-sm font-normal text-black">create your account, it's free and only take a minute</p>
-               <form  [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+               <form  (ngSubmit)="onSubmit(myForm)">
                     <div class=" grid grid-cols-2 gap-3 mx-2">
                         <input class="border border-gray-400 py-1 px-2" 
                             formControlName="name"
                             placeholder="First name*"
+                            type="text"
                             [class.red]="myForm.get('name')?.invalid && (myForm.get('name')?.dirty || myForm.get('name')?.touched)"
                             [class.green]="!myForm.get('name')?.invalid && (myForm.get('name')?.dirty || myForm.get('name')?.touched)">
                         <div class="text-[16px] text-red-700"  *ngIf="myForm.get('name')?.invalid && (myForm.get('name')?.dirty || myForm.get('name')?.touched)">
@@ -20,6 +21,7 @@
                         <input  class="border border-gray-400 py-1 px-2"
                             formControlName="lastName" 
                             placeholder="Last name*"
+                            type="text"
                             [class.red]="myForm.get('lastName')?.invalid && (myForm.get('lastName')?.dirty || myForm.get('lastName')?.touched)"
                             [class.green]="!myForm.get('lastName')?.invalid && (myForm.get('lastName')?.dirty || myForm.get('lastName')?.touched)">
                         <div class="text-[16px] text-red-700"  *ngIf="myForm.get('lastName')?.invalid && (myForm.get('lastName')?.dirty || myForm.get('lastName')?.touched)">
@@ -30,6 +32,7 @@
                         <input  class="border border-gray-400 py-1 px-2"
                             formControlName="tel" 
                             placeholder="Mobile Phone*"
+                            type="number"
                             [class.red]="myForm.get('tel')?.invalid && (myForm.get('tel')?.dirty || myForm.get('tel')?.touched)"
                             [class.green]="!myForm.get('tel')?.invalid && (myForm.get('tel')?.dirty || myForm.get('tel')?.touched)">
                         <div class="text-[16px] text-red-700"  *ngIf="myForm.get('tel')?.invalid && (myForm.get('tel')?.dirty || myForm.get('tel')?.touched)">
@@ -38,13 +41,15 @@
                         <input  class="border border-gray-400 py-1 px-2"
                             formControlName="email"
                             placeholder="Email*"
+                            type="email"
                             [class.red]="myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)"
                             [class.green]="!myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)">
-                        <div class="text-[16px] font-red-700"  *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)">
+                        <div class="text-[16px] text-red-700"  *ngIf="myForm.get('email')?.invalid && (myForm.get('email')?.dirty || myForm.get('email')?.touched)">
                             Email is required!
                         </div>
                         <input  class="border border-gray-400 py-1 px-2 input"
                             formControlName="password" 
+                            type="password"
                             placeholder="password*"
                             [class.red]="myForm.get('password')?.invalid && (myForm.get('password')?.dirty || myForm.get('password')?.touched)"
                             [class.green]="!myForm.get('password')?.invalid && (myForm.get('password')?.dirty || myForm.get('password')?.touched)">
@@ -58,3 +63,5 @@
           </div>
      </div>
 </div>
+
+<!-- [formGroup]="myForm"  -->

@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { RegisterComponent } from './register/register.component';
+import { DetailsPageComponent } from './details-page.component';
 
 const routes: Routes = [
- 
+  {
+    path: 'details/:id', component:DetailsPageComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthRoutingModule { }
+export class DetailsRoutingModule { }

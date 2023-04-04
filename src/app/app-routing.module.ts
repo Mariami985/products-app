@@ -1,8 +1,8 @@
-import { AuthModule } from './auth/auth.module';
-import { ProductsComponent } from './components/products/products.component';
+import { DetailsPageComponent } from './components/details-page/details-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
 
@@ -14,23 +14,24 @@ const routes: Routes = [
     path: 'home', component: HomeComponent
   },
   {
-    path:'products', component: ProductsComponent,
+    path:'products', component: CartComponent,
+  },
+  {
+    path: 'details/:id',
+    component:DetailsPageComponent
   },
   {
     path: 'register',
-    loadChildren: () => import('./auth/auth.module').then(item=> item.AuthModule)
+    loadChildren: () => import('./auth/register/register/register.module').then(item=> item.RegisterModule)
   },
   {
-    path: 'singup',
-    loadChildren: () => import('./singup/singup.module').then(item=> item.SingupModule)
+    path: 'login',
+    loadChildren: () => import('./auth/login/login.module').then(item=> item.LoginModule)
   },
-
-
-
-
-
-  // { path: 'protected-route', component: ProtectedComponent, canActivate: [AuthGuard] }
-  // { path: 'feature', loadChildren: () => import('./feature/feature.module').then(m => m.FeatureModule) },
+  {
+    path: 'deshbord',
+    loadChildren: () => import('./auth/deshbord/deshbord/deshbord.module').then(item=> item.DeshbordModule)
+  },
 ];
 
 @NgModule({

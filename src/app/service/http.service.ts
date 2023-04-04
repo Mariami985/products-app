@@ -14,6 +14,11 @@ export class HttpService  {
   }
 
   getProduct(search?: string | null | undefined): Observable<any> {
-    return this.http.get<any>(`https://dummyjson.com/products/search?q=${search}`);
+    return this.http.get<any>(`${this.apiUrl}/products/search?q=${search}`);
+    // return this.http.get<any>(`${this.apiUrl}/products`)
+  }
+
+  getdetailProdact(id:string): Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/products/${id}`)
   }
 }

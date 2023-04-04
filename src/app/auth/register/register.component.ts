@@ -7,8 +7,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit{
+
+// ! აღარ მუშოაბს თემფლეითის მხარეს
   FormGroup:any
-  myForm!:FormGroup
+  myForm!: FormGroup
 
   constructor(private fb: FormBuilder) { }
 
