@@ -1,8 +1,9 @@
 import { DetailsPageComponent } from './components/details-page/details-page.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
+import { AuthGuard } from './auth/service/auth.guard';
 
 const routes: Routes = [
 
@@ -30,12 +31,13 @@ const routes: Routes = [
   },
   {
     path: 'deshbord',
+    canActivate:[AuthGuard],
     loadChildren: () => import('./auth/deshbord/deshbord/deshbord.module').then(item=> item.DeshbordModule)
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

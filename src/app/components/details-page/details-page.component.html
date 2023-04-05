@@ -1,5 +1,4 @@
-
-<div class="grid grid-cols-3 gap-4 w-auto justify-center items-center h-screen">
+<div class="grid grid-cols-2 gap-4 w-auto justify-center items-center h-screen">
      <div *ngIf="itemProduct">
           <div class="p-[4rem]">
                <div class="mb-5">
@@ -14,14 +13,14 @@
                <div class="ml-[4rem] mb-[3rem]">
                     <h3 class="text-sm text-black font-medium mb-4 overflow-hidden capitalize">{{ itemProduct.title}}</h3>
                     <div>
-                    <div class="flex justify-between">
+                    <div class="flex">
                          <p class="tracking-widest text-gray text-xs font-medium uppercase">{{ itemProduct.category}}</p>
-                         <p class="tracking-widest text-gray-800 text-xs font-medium uppercase pr-6">{{ itemProduct.price | currency: 'GEL '}}</p>
+                         <p class="tracking-widest text-yellow-600 text-xs font-medium uppercase pr-6 pl-[9.8rem]">{{ itemProduct.price | currency: 'GEL '}}</p>
                          </div>
                     <div class="">
                          <p >rating: <span class="text-yellow-600 pl-[15.5rem]">{{itemProduct.rating}}</span></p>
-                         <p>discountPercentage: <span class="text-yellow-600 pl-[4rem]">{{itemProduct.discountPercentage}}</span></p>
-                         <p>stock: <span class="text-yellow-600 pl-[15.5rem]">{{itemProduct.stock}}</span></p>
+                         <p>discountPercentage: <span class="text-yellow-600 pl-[9rem]">{{itemProduct.discountPercentage}}</span></p>
+                         <p>stock: <span class="text-yellow-600 pl-[16.6rem]">{{itemProduct.stock}}</span></p>
                     </div>
 
                     </div>
@@ -30,6 +29,11 @@
           <button routerLink="/login" class="bg-violet-300 hover:bg-violet-400 px-3 py-2 ml-[4rem] rounded text-white font-bold text-base capitalize ">add to cart</button>
         </div>
      </div>
+     <div>
+          <img src="{{itemProduct.images[0]}}" alt="{{ itemProduct.alt}}" class="w-[70%] rounded object-cover object-center mt-[6rem]">
+     </div>
+
+
 </div>
 
 <!-- <ng-container *ngIf="itemProduct">

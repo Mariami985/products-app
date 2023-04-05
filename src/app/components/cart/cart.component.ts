@@ -1,6 +1,7 @@
 import { HttpService } from './../../service/http.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -11,37 +12,32 @@ export class CartComponent implements OnInit {
  
   public productList: any;
 
-  searchForm = new FormGroup({
-    search: new FormControl('')
-})
-search = ''
+  // public productSearch:Array<any> = []
+  // searchForm = new FormGroup({
+  // search: new FormControl('')
+  // })
 
-  constructor(private httpService: HttpService) {
-    this.searchForm.valueChanges.subscribe((values) => {
+constructor(private httpService: HttpService) {
 
-      this.getData(values.search)
-    })
+      this.httpService.getProductList().subscribe(response => {
+          this.productList = response.products
+        })
 
+          // this.searchForm.get('search')?.valueChanges
+          // .pipe(
+          //   debounceTime(500),
+          //   distinctUntilChanged(),
+          //   switchMap((s) => this.httpService.getProcucts(s))
+          // )
+          // .subscribe(
+          //   (s) => {
+          //     this.productSearch = s?.search
+          //   }
+          // )
+      
   }
 
   ngOnInit(): void {
-     this.onClick(this.search) 
+  }
   }
 
-
-  getData(search?:string | null | undefined){
-    this.httpService.getProduct().subscribe(response => {
-        this.productList = response.products
-      })
-  }
-  onClick(event:any){
-    if(event.value != undefined){
-      this.search= event.value
-    }
-    
-    
-    this.httpService.getProduct(this.search).subscribe(response => {
-      this.productList = response.products
-    })
-  }
-}

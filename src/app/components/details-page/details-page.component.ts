@@ -12,7 +12,7 @@ export class DetailsPageComponent implements OnInit {
   constructor( private httpService: HttpService, private route:ActivatedRoute) {}
 
 productsId:any;
- itemProduct: any;
+itemProduct: any;
   
  ngOnInit(): void {
 

@@ -10,9 +10,9 @@ import { LoginComponent } from './login/login/login.component';
 
 @NgModule({
   declarations: [
-    LoginComponent,
-    RegisterComponent,
-    DeshbordComponent,
+    // LoginComponent,
+    // RegisterComponent,
+    // DeshbordComponent,
 
   ],
   imports: [

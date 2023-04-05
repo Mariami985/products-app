@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/login/login/login.component';
 import { DetailsPageComponent } from './components/details-page/details-page.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { DetailsPageComponent } from './components/details-page/details-page.com
     CartComponent,
     HomeComponent,
     LoginComponent,
+    RegisterComponent,
     DetailsPageComponent
   ],
   imports: [
