@@ -1,8 +1,9 @@
-import { HttpService } from './../../service/http.service';
+import {  Product } from '../../service/product.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component,  OnDestroy,  OnInit, Output, ViewChild } from '@angular/core';
 import { CartComponent } from '../cart/cart.component';
 import { Subject, debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { AuthService } from 'src/app/auth/service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -23,13 +24,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 })
 
-  constructor(private httpService: HttpService) {
-    this.searchForm.get('search')?.valueChanges
+  constructor(private  productService:  Product, private serviceLogin: AuthService) {
+    this.searchForm.get('search')?.valueChanges 
     .pipe(
       debounceTime(500),
       distinctUntilChanged(),
 
-      switchMap((s) => this.httpService.getProcucts(s))
+      switchMap((s) => this. productService.getProcucts(s))
     )
     .subscribe(
       (s) => {
@@ -38,9 +39,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     )
 }
 
-  ngOnInit(): void {
- 
+ngOnInit(): void {
+
+  if(!this.serviceLogin.isLogin){
+    this.productService.navigate(['/login'])
   }
+}
 
   ngOnDestroy() {
     this.searchProduct$.unsubscribe();

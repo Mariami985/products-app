@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'register', component: RegisterComponent,
    },
    {
-    path: 'deshboard', component: DeshbordComponent,  canActivate:[AuthGuard]
+    path: 'deshboard', component: DeshbordComponent
    }
 ];
 

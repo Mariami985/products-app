@@ -30,13 +30,15 @@ loginForm: FormGroup | any
 
 onSubmit(){
     this.serviceLogin.login(this.loginForm.value.userDetails.username, this.loginForm.value.userDetails.password).subscribe((res) => {
-      console.log('login', res)
       if(this.loginForm.valid){
           localStorage.setItem('token', JSON.stringify(res));
           this.router.navigate(['/deshbord'])
-      }else  {
-        this.router.navigate([''])
-// ! არ მუშაობს else
+      }else if (this.loginForm.invalid || '' || this.loginForm.dirty){
+        this.router.navigate(['/register'])
+      }
+      
+      else  {
+        this.router.navigate(['/register'])
       }
     }
   )

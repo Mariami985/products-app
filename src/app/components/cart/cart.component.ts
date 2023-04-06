@@ -1,7 +1,8 @@
-import { HttpService } from './../../service/http.service';
+import {  Product } from '../../service/product.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
+import { AuthService } from 'src/app/auth/service/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,32 +13,18 @@ export class CartComponent implements OnInit {
  
   public productList: any;
 
-  // public productSearch:Array<any> = []
-  // searchForm = new FormGroup({
-  // search: new FormControl('')
-  // })
+constructor(private  productService:  Product, private serviceLogin: AuthService) {
 
-constructor(private httpService: HttpService) {
-
-      this.httpService.getProductList().subscribe(response => {
+      this. productService.getProductList().subscribe(response => {
           this.productList = response.products
         })
-
-          // this.searchForm.get('search')?.valueChanges
-          // .pipe(
-          //   debounceTime(500),
-          //   distinctUntilChanged(),
-          //   switchMap((s) => this.httpService.getProcucts(s))
-          // )
-          // .subscribe(
-          //   (s) => {
-          //     this.productSearch = s?.search
-          //   }
-          // )
-      
-  }
+}
 
   ngOnInit(): void {
+
+    if(!this.serviceLogin.isLogin){
+      this.productService.navigate(['/login'])
+    }
   }
-  }
+}
 

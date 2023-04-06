@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpService } from 'src/app/service/http.service';
+import {  Product} from 'src/app/service/product.service';
 
 @Component({
   selector: 'app-details-page',
@@ -9,7 +9,7 @@ import { HttpService } from 'src/app/service/http.service';
 })
 export class DetailsPageComponent implements OnInit {
 
-  constructor( private httpService: HttpService, private route:ActivatedRoute) {}
+  constructor( private  productService:  Product, private route:ActivatedRoute) {}
 
 productsId:any;
 itemProduct: any;
@@ -23,7 +23,7 @@ itemProduct: any;
 
   }
   getProductById(id: any) {
-    this.httpService.getdetailProdact(id).subscribe((res) => {
+    this. productService.getdetailProdact(id).subscribe((res) => {
       this.itemProduct = res;
     })
   }
