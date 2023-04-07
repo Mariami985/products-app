@@ -32,11 +32,10 @@ onSubmit(){
     this.serviceLogin.login(this.loginForm.value.userDetails.username, this.loginForm.value.userDetails.password).subscribe((res) => {
       if(this.loginForm.valid){
           localStorage.setItem('token', JSON.stringify(res));
-          this.router.navigate(['/deshbord'])
+          this.router.navigate(['/products'])
       }else if (this.loginForm.invalid || '' || this.loginForm.dirty){
         this.router.navigate(['/register'])
       }
-      
       else  {
         this.router.navigate(['/register'])
       }

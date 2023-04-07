@@ -10,10 +10,4 @@ import { AuthService } from '../service/auth.service';
 export class DeshbordComponent {
 
   constructor(private serviceLogin: AuthService, private router: Router, private route: ActivatedRoute) {}
-
-
-onClick(){
-  localStorage.removeItem('token');
-  this.router.navigate([''])
-}
 }

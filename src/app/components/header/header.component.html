@@ -2,16 +2,21 @@
      <div>
           <div class="flex items-center justify-between">
                <i class="fas fa-shipping-fast text-2xl text-violet-500 mr-10 pl-4"></i>
-               <span class="text-xl text-black font-bold tracking-widest uppercase">make a choice</span>
+               <a href="products" class="text-xl text-black font-bold tracking-widest uppercase">make a choice</a>
                <div class="mr-[20rem] mb-2 p-2 ">
                     <form  class="flex gap-2">
-                         <div [formGroup]="searchForm">
-                              <input type="text" placeholder="search products" formControlName="search" class="bg-white shadow ml-[12rem] mt-2 px-2 border-black"/>
-                              <!-- <p>Current Value: {{ searchResult$ | async }}</p> -->
+                    <!-- ! პრობლემა -->
+                         <!-- <select >
+                              <option >Choose category</option>
+                              <option *ngFor="let category of categoryList" [value]="category" >{{category.categoryList}}</option>
+                         </select> -->
+                         <div >
+                              <input (keyup.enter)="updateSearchValue($event)" type="text" placeholder="search products"  class="bg-white shadow ml-[12rem] mt-2 px-2 border-black"/>
                          </div>
                   </form>
                </div>
-               <button routerLink="/login" class="flex" (click)="onShopClick()" >
+               <button (click)="onClick()">long Out</button>
+               <button routerLink="/deshbord" class="flex" (click)="onShopClick()" >
                     <a class="fas fa-shopping-cart lg:inline-flex lg:w-auto px-3 py-4 rounded text-2xl text-violet-500 hover:bg-violet-200"></a>
                     <!-- <div class="text-[1rem]  text-red-500 absolute py-6 pl-10" >0</div> -->
                </button>
