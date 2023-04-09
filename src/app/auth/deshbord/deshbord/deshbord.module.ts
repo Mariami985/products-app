@@ -3,10 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { DeshbordRoutingModule } from './deshbord-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DeshbordComponent } from '../deshbord.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    DeshbordComponent
+  ],
   imports: [
     CommonModule,
     DeshbordRoutingModule,

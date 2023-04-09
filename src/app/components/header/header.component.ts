@@ -1,3 +1,4 @@
+import { CartService } from 'src/app/auth/service/cart.service';
 import {  Product } from '../../service/product.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component,  OnDestroy,  OnInit, Output, ViewChild } from '@angular/core';
@@ -13,10 +14,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class HeaderComponent implements OnInit, OnDestroy {
-
-  productSearch: any;
-  searchValue = '';
+  // searchValue = '';
   categoryList:any[]=[];
+
+  public totalItem: number = 0;
 
   private searchProduct$ = new Subject<any>();
 
@@ -28,16 +29,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor( private  productService:  Product,
       private serviceLogin: AuthService, 
       private searchService:FilterService,
+      private cartService:CartService,
       private router: Router, 
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
+      
   ) { }
 
 ngOnInit(): void {
 
-  if(!this.serviceLogin.isLogin){
-    this.productService.navigate(['/login'])
-  }
+  // if(!this.serviceLogin.isLogin){
+  //   this.productService.navigate(['/login'])
+  // }
   this.getCategories();
+
+  this.cartService.getItemProducts().subscribe(res => {
+      this.totalItem = res.length;
+      console.log(this.totalItem)
+  })
  
 }
 
@@ -48,14 +56,24 @@ getCategories(){
   })
 }
 
-updateSearchValue(event:any) {
-  let search = event.target.value
-  this.searchService.setSearchValue(search);
+logSelected($event:any){
+  console.log($event.value)
+  this.searchService.setDropdownValue($event.value)
 }
+
+// updateSearchValue(event:any) {
+//   let search = event.target.value
+//   this.searchService.setSearchValue(search);
+// }
+
 // updateDropValue(event:any){
 //   let drop = event.target.value
 //   this.searchService.setDropdownValue(drop)
 // }
+
+
+
+
 onClick(){
   localStorage.removeItem('token');
   this.router.navigate([''])

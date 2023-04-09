@@ -8,9 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class Product {
-  private apiUrl = environment.apiUrl;
-  navigate: any;
-  
+  private apiUrl = environment.apiUrl;  
 
   constructor(private http:HttpClient) { 
   }
@@ -23,7 +21,7 @@ export class Product {
 
   //  with rxjs search form
 
-  getProcucts(search?: string | null | undefined) : Observable<any>{
+  getProducts(search?: string | null | undefined) : Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/products/search?q=${search}`);
   }
 

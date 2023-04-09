@@ -1,6 +1,7 @@
-<div class="grid grid-cols-2 gap-4 w-auto justify-center items-center h-screen">
+<div class="grid grid-cols-2 gap-4 w-auto justify-center items-center h-screen" >
      <div *ngIf="itemProduct">
           <div class="p-[4rem]">
+               <i routerLink="/products" class="fas fa-arrow-left mb-10 text-xl text-bold cursor-pointer" ></i>
                <div class="mb-5">
                     <h1 class="text-4xl font-bold tracking-wide">{{itemProduct.title}}</h1>
                </div>
@@ -15,22 +16,22 @@
                     <div>
                     <div class="flex">
                          <p class="tracking-widest text-gray text-xs font-medium uppercase">{{ itemProduct.category}}</p>
-                         <p class="tracking-widest text-yellow-600 text-xs font-medium uppercase pr-6 pl-[9.8rem]">{{ itemProduct.price | currency: 'GEL '}}</p>
+                         <p class="tracking-widest text-bold text-xs font-medium uppercase pr-6 pl-[9.8rem]">{{ itemProduct.price | currency: 'GEL '}}</p>
                          </div>
                     <div class="">
-                         <p >rating: <span class="text-yellow-600 pl-[15.5rem]">{{itemProduct.rating}}</span></p>
-                         <p>discountPercentage: <span class="text-yellow-600 pl-[9rem]">{{itemProduct.discountPercentage}}</span></p>
-                         <p>stock: <span class="text-yellow-600 pl-[16.6rem]">{{itemProduct.stock}}</span></p>
+                         <p >rating: <span class="text-bold pl-[15.5rem]">{{itemProduct.rating}}</span></p>
+                         <p>discountPercentage: <span class="text-bold pl-[9rem]">{{itemProduct.discountPercentage}}</span></p>
+                         <p>stock: <span class="text-bold pl-[16.6rem]">{{itemProduct.stock}}</span></p>
                     </div>
 
                     </div>
                     <p class="pt-9 leading-relaxed">{{itemProduct.description}}</p>
                </div>
-          <button routerLink="/login" class="bg-violet-300 hover:bg-violet-400 px-3 py-2 ml-[4rem] rounded text-white font-bold text-base capitalize ">add to cart</button>
+          <button routerLink="/deshbord" class="bg-violet-400 hover:bg-violet-500 px-3 py-2 ml-[4rem] rounded text-white font-bold text-base capitalize ">add to cart</button>
         </div>
      </div>
      <div>
-          <img src="{{itemProduct.images[0]}}" alt="{{ itemProduct.alt}}" class="w-[70%] rounded object-cover object-center mt-[6rem]">
+          <img src="{{itemProduct.images[1]}}" alt="{{ itemProduct.alt}}" class="w-[70%] rounded object-cover object-center mt-[6rem]">
      </div>
 
 

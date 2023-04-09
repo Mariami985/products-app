@@ -7,12 +7,13 @@ import { BehaviorSubject } from 'rxjs';
 export class FilterService {
 
   private searchValue = new BehaviorSubject<string>('');
+
   
   private dropDownValue = new BehaviorSubject<string>('');
 
   constructor() { }
 
-  setSearchValue(value: string) {
+  setSearchValue(value: any) {
     this.searchValue.next(value);
   }
 
@@ -21,13 +22,14 @@ export class FilterService {
   }
 
 
-  // setDropdownValue(value: string) {
-  //   this.dropDownValue.next(value);
-  // }
+  setDropdownValue(value: any) {
+    this.dropDownValue.next(value);
+  }
 
-  // getDropdownValue() {
-  //   return this.dropDownValue.asObservable();
-  // }
+
+  getDropdownValue() {
+    return this.dropDownValue.asObservable();
+  }
 
 
 }

@@ -9,10 +9,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  
-  //   username: 'kminchelle',
-  //   password: '0lelplR',
-
 
 loginForm: FormGroup | any
 
