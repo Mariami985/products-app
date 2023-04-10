@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="grid grid-cols-2 gap-4 w-auto justify-center items-center h-screen" >
      <div *ngIf="itemProduct">
           <div class="p-[4rem]">
@@ -27,11 +28,12 @@
                     </div>
                     <p class="pt-9 leading-relaxed">{{itemProduct.description}}</p>
                </div>
-          <button routerLink="/deshbord" class="bg-violet-400 hover:bg-violet-500 px-3 py-2 ml-[4rem] rounded text-white font-bold text-base capitalize ">add to cart</button>
+          <button (click)="addtocart(itemProduct)" class="bg-violet-400 hover:bg-violet-500 px-3 py-2 ml-[4rem] rounded text-white font-bold text-base capitalize ">add to cart</button>
         </div>
      </div>
+<!-- ! ერორებს მიგდებს კონსოლში არადა მუშაობს -->
      <div>
-          <img src="{{itemProduct.images[1]}}" alt="{{ itemProduct.alt}}" class="w-[70%] rounded object-cover object-center mt-[6rem]">
+          <img src="{{itemProduct.images[0]}}" alt="{{itemProduct.alt}}" class="w-[70%] rounded object-cover object-center mt-[6rem]">
      </div>
 
 

@@ -1,7 +1,8 @@
-<div *ngIf="productItem.length !=0"  class="bg-violet-100 h-screen ">
-     <div class="p-[3rem]">
-          <div class="card-product">
-               <table class="shadow-3xl border-2 border-violet-200 w-[100%]">
+<app-header></app-header>
+<div *ngIf="productItem.length !=0" class="">
+     <div class="p-[3rem]" >
+          <div >
+               <table class="mt-[3rem] shadow-3xl border-2 border-violet-200 w-[100%]">
                     <thead class="text-white">
                          <tr >
                               <th class="py-3 bg-violet-500">Sr.No</th>
@@ -28,11 +29,11 @@
                               </td>
                          </tr>
                          <tr >
-                              <td><button (click)="emptyCartItem()" class="bg-red-600 hover:bg-red-700 px-3 py-2  rounded text-white font-bold text-base capitalize ">empty cart</button></td>
-                              <td><button routerLink="/products" class="bg-violet-400 hover:bg-violet-600 px-3 py-2  rounded text-white font-bold text-base capitalize ">shop more</button></td>
+                              <td class="w-[10%]"><button (click)="emptyCartItem()" class="bg-red-600 hover:bg-red-700 px-3 py-2  rounded text-white font-bold text-base capitalize ">empty cart</button></td>
+                              <td class="w-[10%]"><button routerLink="/products" class="bg-violet-400 hover:bg-violet-600 px-3 py-2  rounded text-white font-bold text-base capitalize ">shop more</button></td>
                               <td></td>
                               <td></td>
-                              <td><span class="bg-violet-600 p-2 rounded text-white font-bold text-base capitalize ">Grand Total: Gel {{grandTotal}}</span></td>  
+                              <td class="w-[20%]"><span class="bg-violet-600 p-2 rounded text-white font-bold text-base capitalize">Grand Total: Gel {{grandTotal}}</span></td>  
                          </tr>
                     </tbody>
                </table>

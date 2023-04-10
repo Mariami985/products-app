@@ -8,7 +8,7 @@ import { DeshbordComponent } from '../deshbord.component';
 
 @NgModule({
   declarations: [
-    DeshbordComponent
+    // DeshbordComponent,
   ],
   imports: [
     CommonModule,

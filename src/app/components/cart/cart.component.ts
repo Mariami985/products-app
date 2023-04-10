@@ -1,7 +1,5 @@
 import {  Product } from '../../service/product.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/auth/service/auth.service';
 import { CartService } from 'src/app/auth/service/cart.service';
 import { FilterService } from 'src/app/service/filter.service';
@@ -19,19 +17,12 @@ constructor(private  productService:  Product,
                   private serviceLogin: AuthService, 
                   private searchService:FilterService,
                   private cartService: CartService
-                  ) 
-                  
-                  {
-      this. productService.getProductList().subscribe(response => {
-          this.productList = response.products
-        })
-}
+                  ) {}
 
   ngOnInit(): void {
-    // if(!this.serviceLogin.isLogin){
-    //   this.productService.navigate(['/login'])
-    // }
-
+    this. productService.getProductList().subscribe(response => {
+      this.productList = response.products
+    })
     this.searchService.getDropdownValue().subscribe((res:any) =>{
       this.searchValue = res
       console.log(this.searchValue)
@@ -46,24 +37,9 @@ constructor(private  productService:  Product,
         })
      })
     })
-
-
-
-    // this.searchService.getSearchValue().subscribe(value => {
-    //   this.searchValue = value;
-    //   this.productService.getProducts(this.searchValue).subscribe((res:any) =>{
-    //     this.productList = res.products
-    //  })
-    // });
   }
-
-addtocart(item: any){
-  this.cartService.addtoCart(item);
-
-}
-
-
-
-
+  addtocart(item: any){
+    this.cartService.addtoCart(item);
+  }
 }
 

@@ -1,11 +1,37 @@
-input{
-     border-radius: 3px;
-     border-color: blueviolet;
+.shopping-container{
+     display: flex;
 }
-.search{
+.counter-container{
+     // border: 1px solid #ffffff20;
+     // border-radius: .1rem;
+     width:3.3rem;
+     height: 3.3rem;
+     margin-right: 1rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+     padding-left: 0.3rem;
+         
+}
+.cart{
+     width:3rem;
+     color:#fff
+}
+.counter-container  span{
+     user-select: none;
      position: absolute;
-     z-index: 1010;
-     right: 35%;
-     margin-top:0.3rem;
-     color:purple;
+     background: #ff4754;
+     width: 1.1rem;
+     height: 1.1rem;
+     font-size: .8rem;
+     border-radius: 50%;
+     font-weight: bold;
+     align-items: center;
+     justify-content: center;
+     top: .2rem;
+     right:  .4rem;
+     padding-left: .3rem;
+     color:#fff
+
 }

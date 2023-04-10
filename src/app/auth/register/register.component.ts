@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RegisterService } from '../service/register.service';
 
 @Component({
   selector: 'app-register',
@@ -9,29 +10,39 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit{
 
-  FormGroup:any
-  myForm!: FormGroup
+  registerForm: FormGroup | any
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, 
+                    private router: Router,
+                    private route: ActivatedRoute,
+                    private registerService:RegisterService) { }
 
   ngOnInit(): void {
-    this.myForm = this.fb.group({
-    name: ['', Validators.required],
-    lastName: ['', Validators.required],
-    tel: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]]
-    });
+    this.registerForm = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      age: ['', Validators.required],
+      id: ['', Validators.required],
+      email: ['', Validators.required],
+      tel: ['', Validators.required],
+      password: ['', [Validators.required]]
+      })
   }
-  onSubmit(form: FormGroup) {
-    // console.log('Valid?', form.valid); 
-    if(this.myForm.invalid){
-     alert('Oops, something heppend wrong! Please check!')
-    }else{
-      alert('Thank you!')
-      this.router.navigate(['/deshbord'])
-    }
+  onSubmit() {
+    
+      this.registerService.register(this.registerForm.value.firstName,
+                                                this.registerForm.value.lastName,
+                                                this.registerForm.value.age,
+                                                this.registerForm.value.id,
+                                                this.registerForm.value.email,
+                                                this.registerForm.value.tel,
+                                                this.registerForm.value.password,)
+      .subscribe((res) => {
+        if(this.registerForm.valid){
+          localStorage.setItem('token', JSON.stringify(res));
+          this.router.navigate(['/products'])
+        }
+      })
     
   }
-
 }

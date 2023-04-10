@@ -14,18 +14,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class HeaderComponent implements OnInit, OnDestroy {
-  // searchValue = '';
+  
   categoryList:any[]=[];
 
   public totalItem: number = 0;
 
   private searchProduct$ = new Subject<any>();
-
-//   categoryForm = new FormGroup({
-//   category: new FormControl('')
-
-// })
-
   constructor( private  productService:  Product,
       private serviceLogin: AuthService, 
       private searchService:FilterService,
@@ -36,10 +30,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) { }
 
 ngOnInit(): void {
-
-  // if(!this.serviceLogin.isLogin){
-  //   this.productService.navigate(['/login'])
-  // }
   this.getCategories();
 
   this.cartService.getItemProducts().subscribe(res => {
@@ -60,20 +50,6 @@ logSelected($event:any){
   console.log($event.value)
   this.searchService.setDropdownValue($event.value)
 }
-
-// updateSearchValue(event:any) {
-//   let search = event.target.value
-//   this.searchService.setSearchValue(search);
-// }
-
-// updateDropValue(event:any){
-//   let drop = event.target.value
-//   this.searchService.setDropdownValue(drop)
-// }
-
-
-
-
 onClick(){
   localStorage.removeItem('token');
   this.router.navigate([''])
@@ -81,9 +57,5 @@ onClick(){
   ngOnDestroy() {
     this.searchProduct$.unsubscribe();
   }
-  onShopClick(){
-    // alert('Good Luck')
-  }
-
 }
  

@@ -12,6 +12,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './auth/login/login/login.component';
 import { DetailsPageComponent } from './components/details-page/details-page.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { DeshbordComponent } from './auth/deshbord/deshbord.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { RegisterComponent } from './auth/register/register.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    DetailsPageComponent
+    DetailsPageComponent,
+    DeshbordComponent
   ],
   imports: [
     BrowserModule,
