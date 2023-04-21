@@ -18,7 +18,7 @@ export class  ProductsService{
 
   //  get all product list ჯერ არ ვიყინებე პროსტა იყოს
 
-  getProductList(search?: string | null | undefined): Observable<any> {
+  getProductList(): Observable<any[]> {
     return this.http.get<any>(`${this.apiUrl}/products`)
   }
 
@@ -26,7 +26,6 @@ export class  ProductsService{
 
   getProductsSearch(search:any) : Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/products/search?q=${search}`)
-   
   }
   
 
@@ -38,7 +37,7 @@ export class  ProductsService{
 
   // dropdow 
 
-  getDropdow():Observable<any>{
+  getCategory():Observable<any>{
   return this.http.get<any>(`${this.apiUrl}/products/categories`)
    
   }

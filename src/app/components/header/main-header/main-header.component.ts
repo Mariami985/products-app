@@ -12,8 +12,7 @@ import { FilterStateService } from 'src/app/services/products-service/filter-sta
 })
 export class MainHeaderComponent implements OnInit {
 
-  categoryList$ = this.productStateService.getDropdownValue();
-  // loading$ = this.searchService.getLoading();
+  categoryList$ = this.productStateService.getCategoryValue();
 
   listCategory = ['iphone', 'samsung', 'laptop', 'oil', 'food', 'womens', 'home']
 
@@ -34,12 +33,13 @@ export class MainHeaderComponent implements OnInit {
       this.totalItem = res.length;
     })
   }
+
   logSelected($event:any){
-    this.productStateService.setDropdownValue($event.value)
+    this.productStateService.setCategoryValue($event.value)
   }
+  // ყველა კატეგორია მოაქვს api -  დან
   getCategories(){
-    this.categoryList$ = this.productsService.getDropdow()  
-    // ესე იმიტომ წერია რომ ყველა კატეგორია წამოიღოს api-დან
+    this.categoryList$ = this.productsService.getCategory()  
   }
   onClick(){
     localStorage.removeItem('token');

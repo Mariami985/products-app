@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable, Input, Output } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, map, of, tap, switchMap } from 'rxjs';
+
+import {  Injectable, } from '@angular/core';
 import { ProductsService } from './products.service';
 import { ProductsStateService } from './Products-state.service';
 
@@ -8,33 +8,35 @@ import { ProductsStateService } from './Products-state.service';
   providedIn: 'root'
 })
 
-// აზრი არ აქვს 
 export class FilterStateService {
- 
-  loading$ = this.productStateService.getLoading();
-  searchValue$ = this.productStateService.getSearchValue();
-  productList : any = [];
-
+  
+  productsList$:Observable<any[]> =this.productStateService.getProducts()
+  loading$:Observable<boolean> = this.productStateService.getLoading();
+  searchValue$:Observable<any> = this.productStateService.getSearchValue();
 
   constructor( private productsService: ProductsService,
     private productStateService:ProductsStateService
     ) { }
 
-      fetchProducts(){
-        this.productStateService.setLoading(true)
-        this.productStateService.getDropdownValue().subscribe((res:any) =>{
+    fetchProducts(){
+      this.productStateService.setLoading(true);
+      this.productStateService.getCategoryValue().subscribe((res:any) =>{
         this.searchValue$ = res
         this.productStateService.setLoading(false)
         if(res === 'Choose category'){
-          // this.searchValue$ = of([])  
-        // როდესაც იქნება Choose category მინდა რო ყველა კატეგორია დაბრუნდეს მაგრამ აღარ აკეთებს
+          this.searchValue$ = of('')
+        }else {
+          this.searchValue$ = of(res)
         }
-        this.productsService.getProductsSearch(this.searchValue$).subscribe((res:any) =>{
-          this.productList = res.products
-          this.productList.forEach((a:any) => {
-            Object.assign(a, {quantity:1, total: a.price})
-          })
-       })
-      })
-    }
+      this.productsList$ = this.searchValue$.pipe(
+        switchMap((value: string) => this.productsService.getProductsSearch(value)),
+        map((res: any) => res.products),
+        tap((products: any) => {
+          products.forEach((a: any) => {
+            Object.assign(a, {quantity:1, total: a.price });
+          });
+        })
+      );
+    })
+  } 
   }

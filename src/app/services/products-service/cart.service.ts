@@ -5,7 +5,6 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 
-
 export class CartService {
 
   public cartItemList: any = []
