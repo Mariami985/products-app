@@ -1,4 +1,4 @@
-<!-- *ngIf ="(productsList$ | async)?.length != 0" -->ორჯელ მეტი რექვესთი მიდის
+
 <div  class="res-div grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-auto justify-center items-center h-screen">
      <div *ngIf="loading$ | async" class="text-center">Loading products... </div>
      <div *ngFor="let item of productsList$ | async" class="pb-10">
@@ -19,11 +19,10 @@
 </div>
    
 
+     
 
-
-
-  <!-- <div>
-          <button [disabled]="currentPage === 1" (click)="previousPage()">Previous</button>
-          <span>{{ currentPage }} of {{ totalPages }}</span>
-          <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+    <!-- <div>
+          <button [disabled]="(currentPage$ | async) === 1" (click)="previousPage()">Previous</button>
+          <span>{{ currentPage$ | async }} of {{ totalPage$ | async }}</span>
+          <button [disabled]="(currentPage$ | async) === (totalPage$ | async)" (click)="nextPage()">Next</button>
   </div> -->

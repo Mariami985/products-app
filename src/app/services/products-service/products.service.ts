@@ -16,10 +16,12 @@ export class  ProductsService{
 
   constructor( private http:HttpClient) { }
 
-  //  get all product list ჯერ არ ვიყინებე პროსტა იყოს
+  //  get all product list 
+  
 
   getProductList(): Observable<any[]> {
-    return this.http.get<any>(`${this.apiUrl}/products`)
+    return this.http.get<any>(`${this.apiUrl}/products`).pipe(
+      map((res:any) => res.products))
   }
 
   //  search form
@@ -31,7 +33,7 @@ export class  ProductsService{
 
   //  go to detail page with id
 
-  getdetailProdact(id:string): Observable<any>{
+  getdetailProdact(id:any): Observable<any>{
   return this.http.get<any>(`${this.apiUrl}/products/${id}`)
   }
 
@@ -41,4 +43,14 @@ export class  ProductsService{
   return this.http.get<any>(`${this.apiUrl}/products/categories`)
    
   }
+
+  // add cart
+
+  getAddCart(cart:any[]):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/carts/add`, cart)
+  }
+
+getPageSize():Observable<any>{
+  return this.http.get<any>(`${this.apiUrl}/products?limit=10&skip=10&select=title,price`)
+}
 }

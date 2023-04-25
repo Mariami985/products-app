@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ProductsStateService } from 'src/app/services/products-service/products-state.service';
+
 import { CartService } from 'src/app/services/products-service/cart.service';
+import { ProductsListService } from 'src/app/services/products-service/products-list.service';
 import { ProductsService } from 'src/app/services/products-service/products.service';
 
 @Component({
@@ -11,26 +15,19 @@ import { ProductsService } from 'src/app/services/products-service/products.serv
 export class MainDetailComponent implements OnInit {
 
   productsId:any;
-  itemProduct: any = [];
+
+  itemProduct$:Observable<any>= this.productStateService.getDetailPage()
   
-  constructor( private  productsService: ProductsService,
+  constructor( private productsListService:ProductsListService,
+    private productStateService:ProductsStateService,
     private cartService: CartService,
     private route:ActivatedRoute) {}
-
-
-
+    
 ngOnInit(): void {
-
   this.route.paramMap.subscribe(params => {
   this.productsId = params.get('id')
 })
-this.getProductById(this.productsId)
-
-}
-getProductById(id: any) {
-this.productsService.getdetailProdact(id).subscribe((res) => {
-this.itemProduct = res;
-})
+this.productsListService.detailPage(this.productsId)
 }
 addtocart(item: any){
 this.cartService.addtoCart(item);

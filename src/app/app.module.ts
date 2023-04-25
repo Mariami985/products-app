@@ -8,6 +8,7 @@ import { MainHeaderComponent } from './components/header/main-header/main-header
 import { HomeComponent } from './pages/product-page/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { PaginationComponent } from './pages/product-page/pagination/pagination.component';
 
 
 
@@ -19,7 +20,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent, 
     MainHeaderComponent,
     // HomeComponent,
-    FooterComponent
+    FooterComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
