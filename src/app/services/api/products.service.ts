@@ -13,17 +13,18 @@ export class  ProductsService{
   // call api
 
   private apiUrl = environment.apiUrl;  
-
+ 
   constructor( private http:HttpClient) { }
 
   //  get all product list 
   
 
   getProductList(): Observable<any[]> {
-    return this.http.get<any>(`${this.apiUrl}/products`).pipe(
+   
+    return this.http.get<any>(`${this.apiUrl}/products?limit=6`,).pipe(
       map((res:any) => res.products))
   }
-
+ 
   //  search form
 
   getProductsSearch(search:any) : Observable<any>{
@@ -37,7 +38,7 @@ export class  ProductsService{
   return this.http.get<any>(`${this.apiUrl}/products/${id}`)
   }
 
-  // dropdow 
+  // category
 
   getCategory():Observable<any>{
   return this.http.get<any>(`${this.apiUrl}/products/categories`)
@@ -46,10 +47,12 @@ export class  ProductsService{
 
   // add cart
 
-  getAddCart(cart:any[]):Observable<any>{
-    return this.http.post<any>(`${this.apiUrl}/carts/add`, cart)
-  }
+  // getAddCart(cart:any[]):Observable<any>{
+  //   return this.http.post<any>(`${this.apiUrl}/carts/add`, cart)
+  // }
 
+
+// არ მადგება, უფრო მახინჯობაა
 getPageSize():Observable<any>{
   return this.http.get<any>(`${this.apiUrl}/products?limit=10&skip=10&select=title,price`)
 }

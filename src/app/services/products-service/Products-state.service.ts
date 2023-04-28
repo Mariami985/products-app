@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
-import { StateService } from '../stateService';
-import { ProductsService } from './products.service';
+import { StateService } from '../../shared/stateService';
+import { ProductsService } from '../api/products.service';
 
 
 export interface Product{
@@ -9,7 +9,6 @@ export interface Product{
   searchValue: any,
   categoryValue: any,
   loading: any,
-  productsId:any,
   detailPage: any,
   productsItem:any[],
   addtoCart: any[],
@@ -25,7 +24,6 @@ const initialState: Product = {
   searchValue: '',
   categoryValue: '',
   loading:false,
-  productsId: '',
   detailPage: '',
   productsItem: [],
   addtoCart: [],
@@ -124,6 +122,4 @@ getCategoryValue(){
   getDetailPage(){
     return this.select((state) => state.detailPage);
   }
-
-  
 }

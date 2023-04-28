@@ -1,2 +1,2 @@
 
-<app-main-detail></app-main-detail>
+<app-main-detail *ngIf="(itemProduct$ | async) as itemProduct" [itemProduct]="itemProduct"></app-main-detail>

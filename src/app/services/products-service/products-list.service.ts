@@ -1,7 +1,7 @@
 import { Observable, map, of, tap, switchMap } from 'rxjs';
 
 import {  Injectable, } from '@angular/core';
-import { ProductsService } from './products.service';
+import { ProductsService } from '../api/products.service';
 import { ProductsStateService } from './products-state.service';
 
 
@@ -16,7 +16,7 @@ export class ProductsListService {
     private productStateService:ProductsStateService
     ) { }
 
-    listOfProducts(){
+  listOfProducts(){
       this.productStateService.setLoading(true);
       this.productsService.getProductList().subscribe(
         (products) => {
@@ -41,6 +41,7 @@ export class ProductsListService {
         (searchValue) => {
           this.productStateService.setSearchValue(searchValue)
           this.listOfProducts = searchValue
+          this.productStateService.setLoading(false);
           console.log(searchValue)
         }
       )

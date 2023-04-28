@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainHeaderComponent } from './components/header/main-header/main-header.component';
 import { HomeComponent } from './pages/product-page/home/home.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
-import { PaginationComponent } from './pages/product-page/pagination/pagination.component';
+import { ListComponent } from './pages/product-page/list/list.component';
+import { MainListComponent } from './pages/product-page/list/main-list/main-list.component';
+
 
 
 
@@ -19,16 +20,14 @@ import { PaginationComponent } from './pages/product-page/pagination/pagination.
     AppComponent,
     HeaderComponent, 
     MainHeaderComponent,
-    // HomeComponent,
+    HomeComponent,
     FooterComponent,
-    PaginationComponent
+ 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    // ReactiveFormsModule,
-    // FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

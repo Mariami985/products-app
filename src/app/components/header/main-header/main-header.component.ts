@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from 'src/app/services/products-service/products.service';
+import { ProductsService } from 'src/app/services/api/products.service';
 import { CartService } from 'src/app/services/products-service/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsListService } from 'src/app/services/products-service/products-list.service';
@@ -36,7 +36,7 @@ export class MainHeaderComponent implements OnInit {
 
   logSelected($event:any){
     this.productsListService.searchCategory($event.value)
-    console.log($event.value)
+    sessionStorage.setItem("searchValue",$event.value)
   }
 
   onClick(){

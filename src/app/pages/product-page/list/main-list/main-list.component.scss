@@ -1,5 +1,43 @@
+.res-div{
+     margin-bottom: 20rem;
+}
 @media (max-width:644px){
      .res-div{
           padding-top: 6rem;
+     }
+}
+@media (max-width:1024px){
+     .res-div{
+          margin-bottom: 40rem ;
+     }
+}
+@media (max-width:768px){
+     .res-div{
+          margin-bottom: 145rem
+    }
+}
+@media (max-width:710px){
+     .res-div{
+          margin-bottom:134rem
+     }
+}
+@media (max-width:550px){
+     .res-div{
+          margin-bottom:120rem
+     }
+}
+@media (max-width:500px){
+     .res-div{
+          margin-bottom:115rem
+     }
+}
+@media (max-width:450px){
+     .res-div{
+          margin-bottom:110rem
+     }
+}
+@media (max-width:400px){
+     .res-div{
+          margin-bottom:105rem
      }
 }
