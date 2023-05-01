@@ -1,7 +1,8 @@
-import {  inject } from '@angular/core';
-import {  CanActivateFn, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { LoginService } from '../auth-service/login.service';
+// ავტორიზაციის საკონტროლო გარდი
 
+import {  inject } from '@angular/core';
+import {  CanActivateFn, Router,  } from '@angular/router';
+import { LoginService } from '../services/auth-service/login.service';
 
   export const isAuthenticated: CanActivateFn  = () => {
     const loginService = inject( LoginService);

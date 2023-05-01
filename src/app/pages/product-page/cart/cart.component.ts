@@ -1,6 +1,6 @@
-import { CartService } from './../../../services/products-service/cart.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ProductsStateService } from 'src/app/services/products-service/products-state.service';
 
 
 
@@ -12,25 +12,28 @@ import { Observable } from 'rxjs';
 
 export class CartComponent implements OnInit{
 
-  @Input() cartItemList: any = []
+  public productItem: any[] = [];
+  public grandTotal: number = 0;
+  productItem$: Observable<any> = this.productsStateService.getCartItem()
 
-constructor(private cartService:CartService,){}
+constructor(private productsStateService:ProductsStateService,){}
  
 ngOnInit(): void {
-  this.cartItemList = this.cartService.getItemProducts()
+  this.productItem$.subscribe(res => {
+    this.productItem = res;
+    this.productItem.forEach((a:any) => {
+      Object.assign(a, {quantity: 1, total: a.price});
+    });
+    this.grandTotal = this.productsStateService.getTotalPrice();
+  });
   }
- 
-  onItemRemoved(item: any) {
-    this.cartService.removeCartItem(item)
-    const index = this.cartItemList.indexOf(item);
-    if (index > -1) {
-      this.cartItemList.splice(index, 1);
-    }
+  removeItem(item: any): void {
+    this.productsStateService.removeCartItem(item);
+  }
 
-    // update the total price
-    this.cartService.getToTalPrice();
-
-    // do any other necessary processing
+  emptyCartItem(): void {
+    this.productsStateService.removeAllCart();
   }
-  }
+}
+  
 

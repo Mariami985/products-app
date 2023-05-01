@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from '../register.component';
 import { ListComponent } from 'src/app/pages/product-page/list/list.component';
-import { isRegister } from 'src/app/services/guards/register.guard';
+import { isRegister } from 'src/app/guards/register.guard';
 
 const routes: Routes = [
   {

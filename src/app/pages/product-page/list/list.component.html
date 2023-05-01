@@ -1,1 +1,5 @@
-<app-main-list ></app-main-list>
+<app-main-list [products]="productsList$ | async"
+[loading]="loading$ | async"
+[error]="error$ | async"
+(addToCartClick)="addToCart($event)"></app-main-list>
+

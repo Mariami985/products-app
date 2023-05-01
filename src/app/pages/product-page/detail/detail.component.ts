@@ -12,9 +12,12 @@ import { ProductsStateService } from 'src/app/services/products-service/products
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit{
-
-  productsId:any;
-  itemProduct$:Observable<any>= this.productStateService.getDetailPage()
+  
+  itemProduct$: Observable<any> = this.productStateService.getDetailPage();
+  loading$: Observable<boolean> = this.productStateService.getLoading();
+  error$: Observable<boolean> = this.productStateService.getError();
+  
+  productsId: any;
 
   constructor( private productsListService:ProductsListService,
     private productStateService:ProductsStateService,
@@ -28,6 +31,10 @@ export class DetailComponent implements OnInit{
       this.productsId = params.get('id')
     })
     this.productsListService.detailPage(this.productsId)
+  }
+  addToCart(item: any) {
+    this.productStateService.addtoCart(item);
+    console.log(item);
   }
   
 }

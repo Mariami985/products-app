@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes, } from '@angular/router';
 import { HomeComponent } from './pages/product-page/home/home.component';
-import { isAuthenticated } from './services/guards/login.guard';
+import { isAuthenticated } from './guards/login.guard';
 import { ListComponent } from './pages/product-page/list/list.component';
 import { DetailComponent } from './pages/product-page/detail/detail.component';
 import { CartComponent } from './pages/product-page/cart/cart.component';

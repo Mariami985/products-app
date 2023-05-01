@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { DetailRoutingModule } from './detail-routing.module';
 import { DetailComponent } from '../detail.component';
-import { MainDetailComponent } from '../main-detail/main-detail.component';
-import { HeaderComponent } from 'src/app/components/header/header.component';
+import { MainDetailComponent } from 'src/app/components/presentational/main-detail/main-detail.component';
+
 
 
 @NgModule({

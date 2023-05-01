@@ -20,23 +20,16 @@ export class  ProductsService{
   
 
   getProductList(): Observable<any[]> {
-   
-    return this.http.get<any>(`${this.apiUrl}/products?limit=6`,).pipe(
+    return this.http.get<any>(`${this.apiUrl}/products?limit=6`).pipe(
       map((res:any) => res.products))
   }
  
   //  search form
 
-  getProductsSearch(search:any) : Observable<any>{
-    return this.http.get<any>(`${this.apiUrl}/products/search?q=${search}`)
+  getProductsSearch(search:string = '') : Observable<any>{
+    return this.http.get<any>(search ? `${this.apiUrl}/products/category/${search}` : `${this.apiUrl}/products?limit=6`);
   }
   
-
-  //  go to detail page with id
-
-  getdetailProdact(id:any): Observable<any>{
-  return this.http.get<any>(`${this.apiUrl}/products/${id}`)
-  }
 
   // category
 
@@ -45,15 +38,9 @@ export class  ProductsService{
    
   }
 
-  // add cart
+  //  go to detail page with id
 
-  // getAddCart(cart:any[]):Observable<any>{
-  //   return this.http.post<any>(`${this.apiUrl}/carts/add`, cart)
-  // }
-
-
-// არ მადგება, უფრო მახინჯობაა
-getPageSize():Observable<any>{
-  return this.http.get<any>(`${this.apiUrl}/products?limit=10&skip=10&select=title,price`)
-}
+  getdetailProdact(id:any): Observable<any>{
+    return this.http.get<any>(`${this.apiUrl}/products/${id}`)
+    }
 }

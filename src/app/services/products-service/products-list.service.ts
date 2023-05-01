@@ -1,10 +1,6 @@
-import { Observable, map, of, tap, switchMap } from 'rxjs';
-
 import {  Injectable, } from '@angular/core';
 import { ProductsService } from '../api/products.service';
 import { ProductsStateService } from './products-state.service';
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +28,10 @@ export class ProductsListService {
         (categoryValue) => {
           this.productStateService.setCategoryValue(categoryValue)
           console.log(categoryValue)
+        },
+        (error) => {
+          this.productStateService.setError(error)
+          this.productStateService.setLoading(false);
         }
       )
     }
@@ -43,6 +43,10 @@ export class ProductsListService {
           this.listOfProducts = searchValue
           this.productStateService.setLoading(false);
           console.log(searchValue)
+        },
+        (error) => {
+          this.productStateService.setError(error)
+          this.productStateService.setLoading(false);
         }
       )
     }
@@ -52,15 +56,11 @@ export class ProductsListService {
         (detailPage) => {
           this.productStateService.setDetailPage(detailPage)
           this.productStateService.setLoading(false);
+        },
+        (error) => {
+          this.productStateService.setError(error)
+          this.productStateService.setLoading(false);
         }
       )
     }
-    // getItemProduct(cart:any){
-    //   this.productsService.getAddCart(cart).subscribe(
-    //     (addtoCart) => {
-    //       this.productStateService.setItemProducts(addtoCart)
-    //     }
-    //   )
-    // }
-  
 }

@@ -7,10 +7,9 @@
        <div class="res-div w-full sm:w-auto flex items-center justify-end mt-2 sm:mt-0">
          <div class=" mr-4 mb-2 p-2">
            <form class="flex gap-2">
-             <select (change)="logSelected($event.target)" class="bg-white shadow px-2 py-2 border-black focus:outline-none">
-               <option>Choose category</option>
-               <option *ngFor="let category of listCategory" [value]="category">{{category}}</option>
-               <option *ngFor="let category of categoryList$ | async" [value]="category">{{category}}</option>
+             <select (change)="search($event.target)" class="bg-white shadow px-2 py-2 border-black focus:outline-none">
+               <option value="">Choose category</option>
+               <option *ngFor="let category of categoryList" [value]="category">{{category}}</option>
              </select>
            </form>
          </div>
@@ -26,9 +25,3 @@
        </div>
      </div>
    </header>
-   
-   
-   
-   
-   
-   
