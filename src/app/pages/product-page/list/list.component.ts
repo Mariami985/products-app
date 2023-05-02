@@ -29,7 +29,7 @@ export class ListComponent implements OnInit{
     this.searchValue$.subscribe((categoryValue:any) => {
       console.log(categoryValue)
       if(categoryValue && categoryValue.products) {
-          this.productsList$ = of(categoryValue.products);
+          this.searchValue$ = of(categoryValue.products);
       }
     })
   }

@@ -1,4 +1,4 @@
-<app-main-list [products]="productsList$ | async"
+<app-main-list [products]="searchValue$ | async"
 [loading]="loading$ | async"
 [error]="error$ | async"
 (addToCartClick)="addToCart($event)"></app-main-list>

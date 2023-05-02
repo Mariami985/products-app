@@ -1,9 +1,6 @@
 <div  class="res-div grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-auto justify-center items-center h-screen ">
      <div *ngIf="loading" class="text-center text-sm text-red-600 font-extrabold">Loading products... </div>
      <div *ngIf="error" class="text-center text-sm text-red-600 font-extrabold">Something went wrong ! Please Check !</div>
-     <div *ngIf="!error && products.length === 0" class="text-center text-sm text-red-600 font-extrabold">
-          No products found.
-        </div>
      <div *ngFor="let item of products" class="pb-10">
           <div >
                <div class="bg-white  rounded-lg mt-20 ml-20 mr-20 mb-10 ">

@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { ListRoutingModule } from './list-routing.module';
 import { ListComponent } from '../list.component';
-import { MainListComponent } from 'src/app/components/presentational/main-list/main-list.component';
+import { MainListComponent } from 'src/app/components/main-list/main-list.component';
+
 
 
 

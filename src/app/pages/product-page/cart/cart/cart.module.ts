@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CartRoutingModule } from './cart-routing.module';
-import { MainCartComponent } from '../../../../components/presentational/main-cart/main-cart.component';
 import { CartComponent } from '../cart.component';
+import { MainCartComponent } from 'src/app/components/main-cart/main-cart.component';
 
 
 @NgModule({

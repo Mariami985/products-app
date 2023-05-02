@@ -23,11 +23,13 @@ const routes: Routes = [
   }, 
   {
     path: 'details/:id',pathMatch:'full',
-    loadChildren: () => import('./pages/product-page/detail/detail/detail.module').then(item => item.DetailModule)
+    loadChildren: () => import('./pages/product-page/detail/detail/detail.module').then(item => item.DetailModule),
+    canActivate:[isAuthenticated]
   }, 
   {
     path: 'cart', pathMatch: 'full',
-    loadChildren: () => import('./pages/product-page/cart/cart/cart.module').then(item => item.CartModule)
+    loadChildren: () => import('./pages/product-page/cart/cart/cart.module').then(item => item.CartModule),
+    canActivate:[isAuthenticated]
   }, 
   {
     path: 'login',  pathMatch: 'full',

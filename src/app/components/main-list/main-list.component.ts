@@ -23,7 +23,7 @@ export class MainListComponent implements OnInit{
     private productsListService:ProductsListService, ){ }
 
 ngOnInit(): void {
-    this.productsListService.listOfProducts()
+    // this.productsListService.listOfProducts()
 }
   addtocart(item: any){
     this.addToCartClick.emit(item)

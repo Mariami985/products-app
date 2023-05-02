@@ -34,8 +34,7 @@ export class  ProductsService{
   // category
 
   getCategory():Observable<any>{
-  return this.http.get<any>(`${this.apiUrl}/products/categories`)
-   
+    return this.http.get<any>(`${this.apiUrl}/products/categories`)
   }
 
   //  go to detail page with id

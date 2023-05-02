@@ -1,0 +1,42 @@
+@media (max-width:770px){
+    .res-container{
+     margin-left: 5rem;
+    }
+     .res-img{
+          width:50%;
+     }
+}
+@media(max-width:400px){
+     .res-title{
+          padding-top:12rem;
+     }
+     .res-p{
+         font-size:10px
+         }
+     .res-container{
+          margin-left: 2rem;
+     }
+}
+
+.div-res{
+     padding-top: 5rem;
+     margin-bottom: 10rem;
+}
+@media(max-width:639px){
+     .div-res{
+          padding-top: 8rem;
+     }
+    
+}
+@media(max-width:665px){
+     .font-size{
+          font-size:15px;
+     }
+}
+@media(max-width:375px){
+     .div-res{
+          padding-top: 10rem;
+          margin-bottom: 10rem;
+     }
+    
+}
