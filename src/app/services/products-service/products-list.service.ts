@@ -9,19 +9,8 @@ import { ProductsStateService } from './products-state.service';
 export class ProductsListService {
   
   constructor( private productsService: ProductsService,
-    private productStateService:ProductsStateService
-    ) { }
+                      private productStateService:ProductsStateService) { }
 
-  listOfProducts(){
-      this.productStateService.setLoading(true);
-      this.productsService.getProductList().subscribe(
-        (products) => {
-          this.productStateService.setProducts(products)
-          this.productStateService.setLoading(false)
-          console.log(products)
-        },
-      );
-    }
     categoryList(){
       this.productStateService.setLoading(true);
       this.productsService.getCategory().subscribe(
@@ -40,7 +29,7 @@ export class ProductsListService {
       this.productsService.getProductsSearch(searchValue).subscribe(
         (searchValue) => {
           this.productStateService.setSearchValue(searchValue)
-          this.listOfProducts = searchValue
+          this.categoryList = searchValue
           this.productStateService.setLoading(false);
           console.log(searchValue)
         },

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ProductsService } from 'src/app/services/api/products.service';
-import { CartService } from 'src/app/services/products-service/cart.service';
 import { ProductsListService } from 'src/app/services/products-service/products-list.service';
 import { ProductsStateService } from 'src/app/services/products-service/products-state.service';
 
@@ -21,7 +19,6 @@ export class DetailComponent implements OnInit{
 
   constructor( private productsListService:ProductsListService,
     private productStateService:ProductsStateService,
-    private cartService: CartService,
     private route:ActivatedRoute) {}
 
 

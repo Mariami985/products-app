@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes, } from '@angular/router';
-import { HomeComponent } from './pages/product-page/home/home.component';
+
 import { isAuthenticated } from './guards/login.guard';
-import { ListComponent } from './pages/product-page/list/list.component';
-import { DetailComponent } from './pages/product-page/detail/detail.component';
-import { CartComponent } from './pages/product-page/cart/cart.component';
-import { LoginComponent } from './pages/auth-page/login/login.component';
-import { RegisterComponent } from './pages/auth-page/register/register.component';
+import { HomeComponent } from './components/product-page/home/home.component';
+import { LoginComponent } from './components/auth-page/login/login.component';
+import { RegisterComponent } from './components/auth-page/register/register.component';
+import { CartComponent } from './components/product-page/cart/cart.component';
+import { DetailComponent } from './components/product-page/detail/detail.component';
+import { ListComponent } from './components/product-page/list/list.component';
+import { ErrorComponent } from './shared/error/error.component';
+
+
 
 const routes: Routes = [
   {
@@ -18,28 +22,33 @@ const routes: Routes = [
   },
   {
     path: 'list', pathMatch: 'full',
-    loadChildren: () => import('./pages/product-page/list/list/list.module').then(item => item.ListModule),
+    loadChildren: () => import('./components/product-page/list/list/list.module').then(item => item.ListModule),
     canActivate:[isAuthenticated]
   }, 
   {
     path: 'details/:id',pathMatch:'full',
-    loadChildren: () => import('./pages/product-page/detail/detail/detail.module').then(item => item.DetailModule),
+    loadChildren: () => import('./components/product-page/detail/detail/detail.module').then(item => item.DetailModule),
     canActivate:[isAuthenticated]
   }, 
   {
     path: 'cart', pathMatch: 'full',
-    loadChildren: () => import('./pages/product-page/cart/cart/cart.module').then(item => item.CartModule),
+    loadChildren: () => import('./components/product-page/cart/cart/cart.module').then(item => item.CartModule),
     canActivate:[isAuthenticated]
   }, 
   {
     path: 'login',  pathMatch: 'full',
     data: {hideHeader:true, showFooter:true},
-    loadChildren: () => import ('./pages/auth-page/login/login/login.module').then(item => item.LoginModule)
+    loadChildren: () => import ('./components/auth-page/login/login/login.module').then(item => item.LoginModule)
   }, 
   {
     path: 'register', pathMatch: 'full',
     data: {hideHeader:true, showFooter:true},
-    loadChildren: () => import('./pages/auth-page/register/register/register.module').then(item => item.RegisterModule)
+    loadChildren: () => import('./components/auth-page/register/register/register.module').then(item => item.RegisterModule)
+  },
+  {
+    path: '**', pathMatch: 'full',
+    data: {hideHeader:true, showFooter:true},
+    component: ErrorComponent
   },
 
 ];

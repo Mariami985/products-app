@@ -41,17 +41,7 @@ export class ProductsStateService extends StateService<Product> {
     super(initialState);
   }
 
-
-//!   მთელი პროდუქცია
-
-setProducts(products:any){
-  this.setState({products})
-}
-getProducts(){
-  return this.select((state) => state.products)
-}
-
-// ! რითაც  იძებნება
+// ! all and search products
 
 setSearchValue(searchValue: any){
   this.setState({searchValue})
@@ -60,7 +50,7 @@ getSearchValue(){
     return this.select((state) => state.searchValue)
   }
 
-//! კატეგორიები რაც ჩანს
+//! category products
 
 setCategoryValue(categoryValue: any){
   this.setState({categoryValue})
@@ -70,7 +60,7 @@ getCategoryValue(){
   }
 
 
-// ! დეტალების გვერდი 
+// ! detail page
 
   setDetailPage(detailPage:any){
     this.setState({detailPage})

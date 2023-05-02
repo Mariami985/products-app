@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { CartRoutingModule } from './cart-routing.module';
 import { CartComponent } from '../cart.component';
-import { MainCartComponent } from 'src/app/components/main-cart/main-cart.component';
+import { MainCartComponent } from 'src/app/components/components/main-cart/main-cart.component';
+
 
 
 @NgModule({
