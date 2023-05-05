@@ -16,9 +16,18 @@ export class  ProductsService{
  
   constructor( private http:HttpClient) { }
 
-  //  search form and whole products list
+//  whole product api
 
-  getProductsSearch(search:string = '') : Observable<any>{
+
+    getProductList(): Observable<any[]> {
+      return this.http.get<any>(`${this.apiUrl}/products?limit=6`).pipe(
+        map((res:any) => res.products))
+    }
+
+
+ //  search form and whole products list
+
+  getProductsSearch(search:string = '', ) : Observable<any>{
     return this.http.get<any>(search ? `${this.apiUrl}/products/category/${search}` : `${this.apiUrl}/products?limit=6`);
   }
   

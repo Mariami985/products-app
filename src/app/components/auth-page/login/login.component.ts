@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from 'src/app/services/auth-service/login.service';
 
+// login component
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -38,9 +39,5 @@ export class LoginComponent implements OnInit {
         }
       }
     )
-      
   }
-  
-  
-  
-  }
+ }

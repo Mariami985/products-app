@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { Router, ActivatedRoute } from '@angular/router';
 import { RegisterService } from 'src/app/services/auth-service/register.service';
 
+
+// registration component
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -27,6 +29,9 @@ export class RegisterComponent implements OnInit{
                         password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20), this.passwordValidator]]
                         })
                     }
+
+// password validator - 1 number, 1 uppercase letter, 1 symbol
+
  passwordValidator(control: AbstractControl): {[key: string]: boolean} | null {
     const value = control.value;
      if (!value) {

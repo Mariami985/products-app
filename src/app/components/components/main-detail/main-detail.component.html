@@ -28,11 +28,10 @@
            </div>
            <p class="pt-9 leading-relaxed">{{itemProduct.description}}</p>
          </div>
-         <button (click)="addToCart(itemProduct)" class="bg-violet-400 hover:bg-violet-500 px-3 py-2 mt-3 ml-4 md:ml-16 rounded text-white font-bold text-base capitalize">add to cart</button>
+         <button (click)="addToCart(itemProduct)" class=" bg-violet-400 hover:bg-violet-500 px-3 py-2 mt-3 ml-4 md:ml-16 rounded text-white font-bold text-base capitalize">add to cart</button>
        </div>
      </div>
-     <div *ngIf="itemProduct ">
-     <div *ngIf="itemProduct.length !=0">
+     <div *ngIf="itemProduct.length !=0" class="res-img">
        <img src="{{itemProduct.images[0]}}" alt="{{itemProduct.alt}}" class="w-[50%] md:w-50 rounded object-cover object-center mt-6">
      </div>
    </div>

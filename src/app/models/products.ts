@@ -1,3 +1,5 @@
+// Products interface.
+
 export interface Products{
      id: number,
      titile:string,

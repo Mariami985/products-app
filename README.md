@@ -1,27 +1,19 @@
 # ProductsApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+This project is about an ecommerce app for selling technical products. The API used is a fake one provided by https://dummyjson.com/docs/products.
 
-## Development server
+The project includes smart and dumb components, routing, lazy loading, services, custom global state, and guards for registration and authentication.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The app uses Tailwind CSS and regular SCSS for responsive design. Global state is used for search categories, filtering data, and managing the cart (adding and removing items).
 
-## Code scaffolding
+The dump components are located in the components folder, and each one starts with "main". The smart components are located in the components/products-page folder, and each one has its own routing module.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The layout folder includes footer, error, and header components that can be used throughout the app.
 
-## Build
+The products interface is located in the models folder.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The services folder includes an auth service for login and registration, as well as a products service for managing the product state and product list. The products state service works with the global state, and the products list service connects to the API and updates the state.
 
-## Running unit tests
+The shared folder includes interceptors and global state components.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The App-routing module is used for routing

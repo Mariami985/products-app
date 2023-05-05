@@ -7,6 +7,8 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+
+// custom inteceptor, where is token
 @Injectable()
 export class CustomInterceptor implements HttpInterceptor {
   constructor() {}

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ProductsListService } from 'src/app/services/products-service/products-list.service';
 import { ProductsStateService } from 'src/app/services/products-service/products-state.service';
 
+
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
@@ -31,7 +32,6 @@ export class DetailComponent implements OnInit{
   }
   addToCart(item: any) {
     this.productStateService.addtoCart(item);
-    console.log(item);
   }
   
 }

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ProductsListService } from 'src/app/services/products-service/products-list.service';
 
-
+// list dumb component, where is input, output and html.
 
 @Component({
   selector: 'app-main-list',
@@ -12,7 +12,7 @@ import { ProductsListService } from 'src/app/services/products-service/products-
 })
 export class MainListComponent {
 
-  @Input() products!: any[];
+  @Input() products!: any[] | null;
   @Input() loading: any;
   @Input() error: any;
   @Output() addToCartClick = new EventEmitter<any>();

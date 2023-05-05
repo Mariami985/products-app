@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, EventEmitter, Output } from '@angular/core';
 
-
+// detail dumb component, where is input, output and html.
 @Component({
   selector: 'app-main-detail',
   templateUrl: './main-detail.component.html',

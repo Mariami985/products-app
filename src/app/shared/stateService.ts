@@ -1,5 +1,8 @@
 import { BehaviorSubject, Observable, distinctUntilChanged, map } from "rxjs";
 
+
+// global state, On which all my services and entire applications are based and built
+
 export class StateService<T> {
      private state$!: BehaviorSubject<T>;
      

@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 
+
+// servise of registration
+// what fields it must have in order to be able to register
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +24,9 @@ export class RegisterService {
 
     })
   }
+
+// registration token 
+
   isRegister(){
     return !!localStorage.getItem('token')
   }

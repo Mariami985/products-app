@@ -1,4 +1,4 @@
-// რეგისტრაციის საკონტროლო გარდი
+// registration guard
 
 import { inject } from '@angular/core';
 import { CanActivateFn } from '@angular/router';

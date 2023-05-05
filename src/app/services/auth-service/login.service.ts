@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 
+// login service
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +17,9 @@ export class LoginService {
         password:password
     })
   }
+
+// authenticated token
+
   isAuthenticated() {
     return !!localStorage.getItem('token')
   }

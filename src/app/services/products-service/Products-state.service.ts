@@ -1,11 +1,11 @@
-// პროდუქტების სთეით სერვისი, რომელიც გლობალური სეთეითის საფუძველზე 
-// ამარტივებს მონაცემების დამუშავებას და მასთან მუშაობას, იქმნება ერთხელ, გამოიყენება ყველგან ბევრჯელ
+// state servise of products, can use where i want
 
 import { Injectable } from '@angular/core';
 import { StateService } from '../../shared/stateService';
 import { ProductsService } from '../api/products.service';
 import { Products } from 'src/app/models/products';
 
+// interface of products
 
 export interface Product{
   products: Products[],
@@ -41,7 +41,7 @@ export class ProductsStateService extends StateService<Product> {
     super(initialState);
   }
 
-// ! all and search products
+// all and search products
 
 setSearchValue(searchValue: any){
   this.setState({searchValue})
@@ -50,7 +50,20 @@ getSearchValue(){
     return this.select((state) => state.searchValue)
   }
 
-//! category products
+
+
+//  Filtered Products
+
+
+  setFilterProducts(products: any[]){
+    this.setState({products})
+  }
+
+  getFilterProducts(){
+    return this.select((state) => state.products)
+  }
+
+// category products
 
 setCategoryValue(categoryValue: any){
   this.setState({categoryValue})
@@ -60,7 +73,7 @@ getCategoryValue(){
   }
 
 
-// ! detail page
+// detail page
 
   setDetailPage(detailPage:any){
     this.setState({detailPage})
@@ -70,7 +83,7 @@ getCategoryValue(){
     return this.select((state) => state.detailPage);
   }
 
-// ! add
+//  add
 
   getCartItem(){
     return this.select((state) => state.cartItem)
@@ -108,7 +121,7 @@ getCategoryValue(){
     this.setCartItem([]);
   }
 
-  // ! loading
+  //  loading
 
   setLoading(loading:boolean){
     this.setState({loading})
@@ -117,7 +130,7 @@ getCategoryValue(){
       return this.select((state) => state.loading);
     }
 
-  // ! error
+  //  error
   setError(error: any) {
     this.setState({ error });
   }

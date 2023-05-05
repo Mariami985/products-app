@@ -1,4 +1,4 @@
-// ავტორიზაციის საკონტროლო გარდი
+// Login control guard
 
 import {  inject } from '@angular/core';
 import {  CanActivateFn, Router,  } from '@angular/router';
