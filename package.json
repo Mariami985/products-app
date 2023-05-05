@@ -4,8 +4,6 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
-    "deploy": "npx gh-pages -d dist/products-app",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
