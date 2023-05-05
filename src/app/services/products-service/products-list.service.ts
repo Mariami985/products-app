@@ -21,8 +21,8 @@ export class ProductsListService {
     //   (products) => {
     //        this.productStateService.setFilterProducts(products)
     //         this.productStateService.setLoading(false)
-    //           },
-    //        );
+    //       },
+    //     );
     //   }
 
 //  call just all category

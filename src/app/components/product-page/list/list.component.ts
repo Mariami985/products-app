@@ -28,19 +28,24 @@ export class ListComponent implements OnInit{
 
 
   ngOnInit(): void {
+   
+// ეს ქოლი მირღვევს dry პრინციპს, 
+// მაგრამ გვერდიდან გვერდზე რომ გადავდივარ ინფორმაცია არ მეკარგება
     // this.productsListService.listOfProducts()
+// ეს ქოლი არ მირღვევს dry პრინციპს, 
+// მაგრამ გვერდიდან გვერდზე გადასვლაზე ინფრომაცია მირეფრეშდება
+
     this.productsListService.searchCategory('')
     this.filterProducts()
   }
 
-  filterProducts() {
-    this.searchValue$.pipe(
-      untilDestroyed(this),
-      filter(categoryValue => !!categoryValue && !!categoryValue.products),
-      map(categoryValue => categoryValue.products),
-      tap(products => this.productsList$ = of(products))
-    ).subscribe();
-}
+filterProducts(){
+    this.searchValue$.subscribe((categoryValue:any) => {
+      if(categoryValue && categoryValue.products) {
+          this.productsList$ = of(categoryValue.products);
+      }
+    })
+  }
   addToCart(addProduct: any) {
     this.productStateService.addtoCart(addProduct);
   }
