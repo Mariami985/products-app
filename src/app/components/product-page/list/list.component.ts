@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { Observable,  filter, interval, map, of, tap } from 'rxjs';
+import { Observable,  filter,  map, of, takeUntil, tap } from 'rxjs';
 import { ProductsListService } from 'src/app/services/products-service/products-list.service';
 import {  ProductsStateService } from 'src/app/services/products-service/products-state.service';
 
@@ -40,7 +40,9 @@ export class ListComponent implements OnInit{
   }
 
 filterProducts(){
-    this.searchValue$.subscribe((categoryValue:any) => {
+    this.searchValue$.pipe(
+      untilDestroyed(this))
+      .subscribe((categoryValue:any) => {
       if(categoryValue && categoryValue.products) {
           this.productsList$ = of(categoryValue.products);
       }
